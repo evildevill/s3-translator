@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.Translator"
+	},
+	"extension_description": {
+		"message": "Vertaling van geselecteerde tekst, een woord of een volledige website, naar en vanuit alle talen."
+	}
+}

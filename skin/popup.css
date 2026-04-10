@@ -1,0 +1,123 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 10px;
+	color: #333333;
+	background-color: #F8F8F8;
+}
+.s3gt_menu_action {
+	padding: 1px 5px 1px 25px;
+	margin: 0;
+	margin-bottom: 5px;
+}
+.s3gt_menu_action:not([is_inactive="true"]) {
+	cursor: pointer;
+}
+.s3gt_menu_action:not([is_inactive="true"]):hover {
+	background-color: #dddddd !important;
+	border-radius: 5px;
+	opacity: 1;
+}
+.s3gt_menu_action:not([is_inactive="true"]):active {
+	filter: invert(100%) sepia(60%);
+	user-select: none;
+}
+.s3gt_menu_action[is_inactive="true"] {
+	font-style: italic;
+	opacity: 0.5;
+	filter: grayscale(100%);
+	cursor: default;
+}
+.s3gt_menu_separator {
+	border-bottom: 1px #cccccc dotted;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#translate_page {
+	background: url("/skin/s3gt-translate-page.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_page_google {
+	background: url("/skin/s3gt-translate-page-google.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_allpages_auto {
+	background: url("/skin/s3gt_switch_off.png") left no-repeat;
+	background-size: auto;
+	background-position: 1px center;
+	opacity: 0.8;
+}
+#translate_allpages_auto[is_enable='true'] {
+	background: url("/skin/s3gt_switch_on.png") left no-repeat;
+	background-size: auto;
+	background-position: 1px center;
+	opacity: 1;
+}
+#translate_auto {
+	background: url("/skin/checkbox_off.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_auto[is_enable='true'] {
+	background: url("/skin/checkbox_on.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_forget {
+	background: url("/skin/s3gt_forget_domain.png") left no-repeat;
+	background-size: auto;
+	background-position: 4px center;
+}
+#translate_learning {
+	background: url("/skin/checkbox_off.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_learning[is_enable='true'] {
+	background: url("/skin/checkbox_on.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_selection {
+	background: url("/skin/s3gt-translate-selection.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_selection_sound {
+	background: url("/skin/s3gt-translate-play.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_custom {
+	background: url("/skin/s3gt-translate-custom.png") left no-repeat;
+	background-size: auto;
+	background-position: 6px center;
+}
+#translate_clipboard {
+	background: url("/skin/s3gt-translate-clipboard.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#translate_go_google {
+	background: url("/skin/google_translate.png") left no-repeat;
+	background-size: auto;
+	background-position: 5px center;
+}
+#s3gt_donate {
+	background: url("/skin/s3gt-donation.png") left no-repeat;
+	background-size: auto;
+	background-position: 6px center;
+	opacity: 0.7;
+}
+#s3gt_settings {
+	background: url("/skin/s3gt-settings.png") left no-repeat;
+	background-size: auto;
+	background-position: 6px center;
+	opacity: 0.7;
+}
+*[is_hidden="true"] {
+	display: none;
+}

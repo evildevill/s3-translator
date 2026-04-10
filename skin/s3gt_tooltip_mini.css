@@ -1,0 +1,75 @@
+.s3gt_translate_tooltip_mini_box {
+	opacity: 1;
+	z-index: 2147483649;
+	margin: -30px 5px;
+	padding: 0;
+	position: absolute;
+}
+.s3gt_translate_tooltip_mini_box[is_hide="true"] {
+	display: none;
+}
+.s3gt_translate_tooltip_mini_box[is_bottom="true"] {
+	margin: 12px -17px;
+}
+.s3gt_translate_tooltip_mini_box:hover {
+	opacity: 1;
+}
+.s3gt_translate_tooltip_mini {
+	border: 1px solid #778899;
+	padding: 0;
+	border-radius: 5px;
+	margin: 3px;
+	box-shadow: 0 0 5px 2px rgba(122,122,122,0.7);
+	width: 15px;
+	height: 15px;
+	user-select: none !important;
+	display: inline-block;
+}
+.s3gt_translate_tooltip_mini:hover {
+	box-shadow: 0 0 5px 2px rgba(167, 83, 200, 0.9);
+}
+#s3gt_translate_tooltip_mini_logo {
+	background: url('/skin/s3gt-tooltip-mini-logo-blur.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_mini_logo:hover {
+	background: url('/skin/s3gt-tooltip-mini-logo.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_mini_logo_plus {
+	background: url('/skin/s3gt-tooltip-mini-logo-plus-blur.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_mini_logo_plus:hover {
+	background: url('/skin/s3gt-tooltip-mini-logo-plus.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_mini_sound {
+	background: url('/skin/s3gt-tooltip-mini-sound-blur.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_mini_sound:hover {
+	background: url('/skin/s3gt-tooltip-mini-sound.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_mini_sound[is_sound_off="true"] {
+	background: url('/skin/s3gt-tooltip-mini-sound-off-blur.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_mini_sound[is_sound_off="true"]:hover {
+	background: url('/skin/s3gt-tooltip-mini-sound-off.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_mini_copy {
+	background: url('/skin/s3gt-tooltip-mini-copy-blur.png') center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_mini_copy:hover {
+	background: url('/skin/s3gt-tooltip-mini-copy.png') center no-repeat;
+	background-size: contain;
+}

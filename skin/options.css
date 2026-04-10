@@ -1,0 +1,164 @@
+*[is_hidden="true"] {
+	display: none !important;
+}
+*[disabled] {
+	opacity: 0.7;
+}
+body {
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+	font-size: 15px;
+	color: #222222;
+	background-color: #EEEEEE;
+}
+a {
+	color: #0000FF;
+}
+a:hover {
+	color: #990000;
+}
+#addon_version {
+	font-size: 0.7em;
+	margin-right: 4px;
+	margin-bottom: -4px;
+	opacity: 0.5;
+}
+#current_locale {
+	border: none;
+	border-radius: 5px;
+	width: 150px;
+}
+label:not([disabled]), input[type="checkbox"]:not([disabled]) {
+	cursor: pointer;
+}
+label:not([disabled]):hover {
+	text-decoration: underline;
+	text-decoration-color: rgba(127, 127, 127, 0.8);
+}
+label.is_middle:hover {
+	text-decoration: none;
+}
+label.is_middle:hover span {
+	border-bottom: 1px rgba(127, 127, 127, 0.8) solid;
+}
+label.is_middle * {
+	vertical-align: middle;
+}
+.groupbox {
+	border: 1px #E0E0E0 solid;
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin: 5px 0;
+	box-shadow: 0 0 10px #dbd9d5;
+}
+.groupbox:hover {
+	border: 1px #AF5CCB solid;
+	box-shadow: 0 0 10px #E3C5ED;
+}
+.groupbox:hover > .caption span, .groupbox:hover > .caption div {
+	background-color: #E3C5ED;
+	border: 1px #AF5CCB solid;
+}
+.groupbox[caption] {
+	margin-top: 1.5em;
+}
+.groupbox .caption {
+	position: relative;
+	margin-top: -1.05em;
+	margin-bottom: 3px;
+	margin-left: -5px;
+}
+.groupbox > .caption span {
+	background-color: #E0E0E0;
+	border-radius: 5px;
+	padding: 0 5px;
+	line-height: 1.2em;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.caption span, .caption div {
+	border: 1px #E0E0E0 solid;
+}
+input[type="text"] {
+	width: 250px;
+	padding: 0 3px;
+}
+input[type="range"] {
+	position: relative;
+	top: 7px;
+	cursor: pointer;
+}
+.button_sound_on {
+	background: url('/skin/s3gt-button-sound.png') center no-repeat;
+	background-size: contain;
+}
+.button_sound_on[sound_stop="true"] {
+	background: url('/skin/s3gt-button-sound-off.png') center no-repeat;
+	background-size: contain;
+}
+.button_sound_on {
+	border: none;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+	cursor: pointer;
+}
+.button_sound_on:hover {
+	border: 1px transparent solid;
+	width: 14px;
+	height: 14px;
+}
+#s3gt-list-disabled-lang-to {
+	height: 200px;
+	overflow: auto;
+	direction: rtl;
+}
+#s3gt-list-disabled-lang-to * {
+	direction: ltr;
+}
+#s3gt-list-disabled-lang-to input:not(:checked) + span {
+	opacity: 0.5;
+}
+#hotkeys_box {
+	margin-bottom: 4px;
+}
+.prefs_button_plus {
+	padding: 2px;
+	width: 14px;
+	height: 14px;
+	background: url("/skin/plus.png") center no-repeat !important;
+	filter: contrast(0);
+	-webkit-filter: contrast(0);
+	background-size: contain;
+	display: inline-block;
+	cursor: pointer;
+	border: 1px transparent solid !important;
+}
+.prefs_button_plus:hover {filter: none; -webkit-filter: none;}
+.prefs_button_plus:active {filter: contrast(0); -webkit-filter: contrast(0);}
+
+.prefs_button_minus {
+	padding: 2px;
+	margin: 2px 5px 2px 2px;
+	width: 12px;
+	height: 12px;
+	background: url("/skin/minus.png") center no-repeat;
+	filter: contrast(0);
+	-webkit-filter: contrast(0);
+	background-size: contain;
+	float: left;
+	cursor: pointer;
+}
+.prefs_button_minus:hover {filter: none; -webkit-filter: none;}
+.prefs_button_minus:active {filter: contrast(0); -webkit-filter: contrast(0);}
+
+#settings_saved {
+	color: #009900;
+	border: 1px dotted #009900;
+	border-radius: 7px;
+	padding: 1px 4px;
+}
+#save_settings, #load_settings, #copy_settings, #reset_settings {
+	margin-top: 8px;
+	cursor: pointer;
+	white-space: nowrap;
+}

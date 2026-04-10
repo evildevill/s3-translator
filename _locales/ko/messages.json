@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.번역기"
+	},
+	"extension_description": {
+		"message": "선택한 텍스트, 구문 또는 전체 웹 사이트를 모든 언어로 번역합니다"
+	}
+}
