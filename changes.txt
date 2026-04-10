@@ -1,0 +1,20 @@
+﻿hotfix: fixed translation for new Google-Translate-API
+fixed: minor bug fixes
+--
+updated: Korean locale (thanks VenusGirl)
+updated: Nederlands locale (thanks Tonnes)
+updated: French locale (thanks Jack Black)
+updated: Polish locale (thanks Maciej Bojakowski)
+updated: Japanese locale (thanks pulsmz)
+updated: Ukrainian locale (thanks Sacredwheels)
+updated: Chinese locale (thanks 李卓)
+updated: German locale (thanks Endor)
+updated: German locale (thanks Thomas.Weber)
+updated: Traditional Chinese locale (thanks Jeff Huang)
+updated: Arabic locale (thanks Ibrahim Saed)
+updated: Slovenian locale (thanks Peter Klofutar)
+updated: Slovak locale (thanks J.P. alias Brahma)
+updated: Italian locale (thanks Giulio Saoncella)
+updated: Persian locale (thanks peyman.m974)
+updated: Portuguese BR locale (thanks JDMs)
+updated: Spanish locale (thanks Roxxz)

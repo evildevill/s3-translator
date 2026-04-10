@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<base/>
+		<style>*[is_hide="true"]{display: none;}</style>
+	</head>
+<body>
+<div id="s3gt_translate_tooltip_body" is_hide="true">
+<div id="s3gt_translate_tooltip" class="s3gt_translate_tooltip">
+<div class="s3gt_translate_tooltip_background"></div>
+<div id="s3gt_translate_tooltip_head" is_movable="true" is_dblclick="true">
+	<div id="s3gt_translate_tooltip_head_close" change_for_dark="true" class="s3gt_translate_tooltip_head_button" title="translate.button.close"></div>
+	<div id="s3gt_translate_tooltip_head_minimize" change_for_dark="true" class="s3gt_translate_tooltip_head_button"></div>
+	<div id="s3gt_translate_tooltip_head_exchange" change_for_dark="true" class="s3gt_translate_tooltip_head_button"></div>
+	<div id="s3gt_translate_tooltip_head_settings" change_for_dark="true" class="s3gt_translate_tooltip_head_button" title="preference.label"></div>
+	<div id="s3gt_translate_tooltip_head_settings_block">
+		<div id="s3gt_translate_tooltip_settings_box">
+			<table>
+				<tr><td align="right"><span label="tooltip.settings.theme"></span></td><td><select id="s3gt_translate_tooltip_settings_theme" class="s3gt_translate_tooltip_select">
+					<option value="light" label="tooltip.settings.theme_light"></option>
+					<option value="dark" label="tooltip.settings.theme_dark"></option>
+					<option value="custom" label="tooltip.settings.theme_custom"></option>
+					<option value="custom_file" label="tooltip.settings.theme_custom_file"></option>
+					<option value="custom_url" label="tooltip.settings.theme_custom_url"></option>
+				</select><input id="s3gt_translate_tooltip_settings_theme_file" type="file"/></td></tr>
+				<tr><td align="right" label="tooltip.settings.animation_effect"></td><td><select id="s3gt_translate_tooltip_settings_animation" class="s3gt_translate_tooltip_select">
+					<option value="rotation" label="tooltip.settings.animation_rotation"></option>
+					<option value="zooming" label="tooltip.settings.animation_zooming"></option>
+					<option value="transparency" label="tooltip.settings.animation_transparency"></option>
+					<option value="disabled" label="tooltip.settings.animation_disabled"></option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.animation_speed"></td><td><select id="s3gt_translate_tooltip_settings_animation_speed" class="s3gt_translate_tooltip_select">
+					<option value="5" label="tooltip.settings.animation_speed.very_fast"></option>
+					<option value="12" label="tooltip.settings.animation_speed.fast"></option>
+					<option value="20" label="tooltip.settings.animation_speed.normal"></option>
+					<option value="25" label="tooltip.settings.animation_speed.slow"></option>
+					<option value="40" label="tooltip.settings.animation_speed.very_slow"></option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.font_family"></td><td><select id="s3gt_translate_tooltip_settings_font_family" class="s3gt_translate_tooltip_select">
+					<option value="" label="tooltip.settings.default"></option>
+					<option value="Arial">Arial</option>
+					<option value="Geneva">Geneva</option>
+					<option value="Helvetica">Helvetica</option>
+					<option value="Monaco">Monaco</option>
+					<option value="Monospace">Monospace</option>
+					<option value="Serif">Serif</option>
+					<option value="Sans-Serif">Sans-Serif</option>
+					<option value="Tahoma">Tahoma</option>
+					<option value="Verdana">Verdana</option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.font_size"></td><td><select id="s3gt_translate_tooltip_settings_font_size" class="s3gt_translate_tooltip_select">
+					<option value="50">50%</option>
+					<option value="60">60%</option>
+					<option value="70">70%</option>
+					<option value="80">80%</option>
+					<option value="90">90%</option>
+					<option value="">100%</option>
+					<option value="110%">110%</option>
+					<option value="120%">120%</option>
+					<option value="130%">130%</option>
+					<option value="140%">140%</option>
+					<option value="150%">150%</option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.font_color"></td><td>
+					<input type="checkbox" id="s3gt_translate_tooltip_settings_font_color_enable" res="font"/>
+					<input type="color" id="s3gt_translate_tooltip_settings_font_color_value" class="s3gt_translate_tooltip_button_color" res="font"/>
+				</td></tr>
+				<tr><td align="right" label="tooltip.settings.background_color"></td><td>
+					<input type="checkbox" id="s3gt_translate_tooltip_settings_background_color_enable" res="background"/>
+					<input type="color" id="s3gt_translate_tooltip_settings_background_color_value" class="s3gt_translate_tooltip_button_color" res="background"/>
+				</td></tr>
+				<tr><td align="right">
+					<div id="s3gt_translate_tooltip_settings_tooltip_mini">
+						<div id="s3gt_translate_tooltip_mini_logo" class="s3gt_translate_tooltip_mini"></div>
+						<div id="s3gt_translate_tooltip_mini_sound" class="s3gt_translate_tooltip_mini"></div>
+						<div id="s3gt_translate_tooltip_mini_copy" class="s3gt_translate_tooltip_mini"></div>
+					</div><span label="tooltip.settings.tooltip_size"></span>
+					</td>
+					<td><select id="s3gt_translate_tooltip_settings_tooltip_size" class="s3gt_translate_tooltip_select">
+					<option value="80%">80%</option>
+					<option value="90%">90%</option>
+					<option value="">100%</option>
+					<option value="110%">110%</option>
+					<option value="120%">120%</option>
+					<option value="130%">130%</option>
+					<option value="140%">140%</option>
+					<option value="150%">150%</option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.save_position"></td><td><select id="s3gt_translate_tooltip_settings_save_position" class="s3gt_translate_tooltip_select">
+					<option value="false" label="tooltip.settings.no"></option>
+					<option value="true" label="tooltip.settings.yes"></option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.box_name"></td><td><select id="s3gt_translate_tooltip_settings_box_name" class="s3gt_translate_tooltip_select">
+					<option value="true" label="tooltip.settings.show"></option>
+					<option value="false" label="tooltip.settings.hide"></option>
+				</select></td></tr>
+				<tr><td align="right" label="tooltip.settings.use.webpage.zoom"></td><td><select id="s3gt_translate_tooltip_settings_webpage_zoom" class="s3gt_translate_tooltip_select">
+					<option value="true" label="tooltip.settings.yes"></option>
+					<option value="false" label="tooltip.settings.no"></option>
+				</select></td></tr>
+				<tr><td colspan="2" id="s3gt_translate_tooltip_settings_close_box" align="right">
+					<div id="s3gt_translate_tooltip_settings_close_box_buttons">
+						<button id="s3gt_translate_tooltip_settings_open" class="s3gt_translate_tooltip_button" label="tooltip.settings.open"></button>
+						<button id="s3gt_translate_tooltip_settings_close" class="s3gt_translate_tooltip_button" label="tooltip.settings.close"></button>
+					</div>
+					<a href="#" id="s3gt_translate_tooltip_donate" label="donate.label"></a>
+				</td></tr>
+			</table>
+		</div>
+	</div>
+	<div id="s3gt_translate_tooltip_view_reverse" change_for_dark="true" class="s3gt_translate_tooltip_head_button" title="translate.button.view_reverse"></div>
+	<div id="s3gt_translate_tooltip_view_source" change_for_dark="true" class="s3gt_translate_tooltip_head_button" title="translate.button.view.source"></div>
+	<div id="s3gt_translate_tooltip_head_fly" class="s3gt_translate_tooltip_head_button" title="translate.button.instant.selected"></div>
+	<div id="s3gt_translate_tooltip_head_pin" class="s3gt_translate_tooltip_head_button"></div>
+	<div id="s3gt_translate_tooltip_head_logo"  is_movable="true" class="s3gt_translate_tooltip_head_button" title="translate.button.close"></div>
+	<span id="s3gt_translate_tooltip_name" is_movable="true" is_dblclick="true"><span id="s3gt_translate_tooltip_name_title" is_movable="true" is_dblclick="true" label="extension_name"></span><span id="s3gt_translate_tooltip_name_text" is_dblclick="true"></span></span>
+</div>
+<div id="s3gt_translate_tooltip_separator"></div>
+<div class="s3gt_translate_tooltip_txt_block" id="s3gt_translate_tooltip_txt_from_box">
+	<div class="s3gt_translate_tooltip_txt_box_pane" id="s3gt_translate_tooltip_txt_pane_from">
+	<div contenteditable="true" spellcheck="true" class="s3gt_translate_tooltip_txt_box" id="s3gt_translate_tooltip_txt_from" ></div>
+	<div class="s3gt_translate_tooltip_txt_box" id="s3gt_translate_tooltip_txt_from_transcription" ></div>
+	</div>
+	<div class="s3gt_translate_tooltip_txt_control" id="s3gt_translate_tooltip_txt_control_from">
+		<div class="s3gt_translate_tooltip_txt_control_box" id="s3gt_translate_tooltip_txt_control_from_box">
+			<button id="s3gt_translate_tooltip_txt_flag_from" class="s3gt_translate_tooltip_button s3gt_translate_tooltip_txt_flag"></button>
+			<button id="s3gt_translate_tooltip_txt_copy_from" class="s3gt_translate_tooltip_button" title="translate.button.copy.text"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_from" class="s3gt_translate_tooltip_button" title="translate.button.sound.play"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_off_from" class="s3gt_translate_tooltip_button" title="translate.button.sound.stop"></button>
+			<button id="s3gt_translate_tooltip_txt_google_from" class="s3gt_translate_tooltip_button" title="translate.go.google"></button>
+			<button id="s3gt_translate_tooltip_button_transcription" is_hide="true" class="s3gt_translate_tooltip_button" title="translate.button.transcription"></button>
+			<button id="s3gt_translate_tooltip_button_clear_text" class="s3gt_translate_tooltip_button" title="translate.button.clear.text"></button>
+			<button id="s3gt_translate_tooltip_button_correct_text" class="s3gt_translate_tooltip_button"></button>
+			<button id="s3gt_translate_tooltip_button_exchange" class="s3gt_translate_tooltip_button" title="translate.button.reverse"></button>
+			<button id="s3gt_translate_tooltip_button_instant_translate" class="s3gt_translate_tooltip_button" title="translate.button.instant.translate"></button>
+			<button id="s3gt_translate_tooltip_button_run" class="s3gt_translate_tooltip_button" label="translate.button.custom"></button>
+		</div>
+		<div id="s3gt_translate_tooltip_txt_flag_from_box" class="s3gt_translate_tooltip_txt_flag_box">
+			<select id="s3gt_translate_tooltip_lang_from" class="s3gt_translate_tooltip_select" title="translate.lang.from"></select>
+			<input id="s3gt_translate_tooltip_save_last_lang_from" type="checkbox" title="translate.lang.remember"/>
+			<button id="s3gt_translate_tooltip_button_move_top" class="s3gt_translate_tooltip_button"></button>
+			<button id="s3gt_translate_tooltip_txt_lang_close_from" class="s3gt_translate_tooltip_button"></button>
+		</div>
+	</div>
+</div><div class="s3gt_translate_tooltip_txt_block" id="s3gt_translate_tooltip_txt_to_box">
+	<div class="s3gt_translate_tooltip_txt_box_pane" id="s3gt_translate_tooltip_txt_pane_to">
+	<div contenteditable="true" spellcheck="false" class="s3gt_translate_tooltip_txt_box" id="s3gt_translate_tooltip_txt_to"></div>
+	</div>
+	<div class="s3gt_translate_tooltip_txt_control" id="s3gt_translate_tooltip_txt_control_to">
+		<div class="s3gt_translate_tooltip_txt_control_box" id="s3gt_translate_tooltip_txt_control_to_box">
+			<div id="s3gt_translate_tooltip_txt_flag_comby" is_hide="true" class="s3gt_translate_tooltip_button">
+				<div id="s3gt_translate_tooltip_txt_flag_from_comby" class="s3gt_translate_tooltip_txt_flag"></div>
+				<div id="s3gt_translate_tooltip_txt_flag_arrow"></div>
+				<div id="s3gt_translate_tooltip_txt_flag_to_comby" class="s3gt_translate_tooltip_txt_flag"></div>
+			</div>
+			<button id="s3gt_translate_tooltip_button_exchange_comby" is_hide="true" class="s3gt_translate_tooltip_button" title="translate.button.reverse"></button>
+			<button id="s3gt_translate_tooltip_txt_flag_to" class="s3gt_translate_tooltip_button s3gt_translate_tooltip_txt_flag"></button>
+			<button id="s3gt_translate_tooltip_txt_copy_to" class="s3gt_translate_tooltip_button" title="translate.button.copy.text"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_to" class="s3gt_translate_tooltip_button" title="translate.button.sound.play"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_off_to" class="s3gt_translate_tooltip_button" title="translate.button.sound.stop"></button>
+			<button id="s3gt_translate_tooltip_txt_google_to" class="s3gt_translate_tooltip_button" title="translate.go.google"></button>
+			<button id="s3gt_translate_tooltip_txt_lowercase_to" class="s3gt_translate_tooltip_button" title="translate.button.lowercase"></button>
+			<button id="s3gt_translate_tooltip_txt_retry_to" class="s3gt_translate_tooltip_button" title="translate.button.repeat.translate"></button>
+			<div id="s3gt_translate_tooltip_wait"></div>
+		</div>
+		<div id="s3gt_translate_tooltip_txt_flag_to_box" class="s3gt_translate_tooltip_txt_flag_box">
+			<select id="s3gt_translate_tooltip_lang_to" class="s3gt_translate_tooltip_select" title="translate.lang.to"></select>
+			<button id="s3gt_translate_tooltip_txt_lang_close_to" class="s3gt_translate_tooltip_button"></button>
+		</div>
+		<div id="s3gt_translate_tooltip_txt_flag_to_box_comby" class="s3gt_translate_tooltip_txt_flag_box">
+			<select id="s3gt_translate_tooltip_lang_from_comby" class="s3gt_translate_tooltip_select" title="translate.lang.from"></select>
+			<input id="s3gt_translate_tooltip_save_last_lang_from_comby" type="checkbox" title="translate.lang.remember"/>
+			<button id="s3gt_translate_tooltip_button_move_top_comby" class="s3gt_translate_tooltip_button"></button>
+			<select id="s3gt_translate_tooltip_lang_to_comby" class="s3gt_translate_tooltip_select" title="translate.lang.to"></select>
+			<button id="s3gt_translate_tooltip_txt_lang_close_to_comby" class="s3gt_translate_tooltip_button"></button>
+		</div>
+	</div>
+</div><div class="s3gt_translate_tooltip_txt_block" id="s3gt_translate_tooltip_txt_reverse_box">
+	<div class="s3gt_translate_tooltip_txt_box_pane" id="s3gt_translate_tooltip_txt_pane_reverse">
+	<div contenteditable="true" spellcheck="false" class="s3gt_translate_tooltip_txt_box" id="s3gt_translate_tooltip_txt_reverse"></div>
+	</div>
+	<div class="s3gt_translate_tooltip_txt_control" id="s3gt_translate_tooltip_txt_control_reverse">
+		<div class="s3gt_translate_tooltip_txt_control_box" id="s3gt_translate_tooltip_txt_control_reverse_box">
+			<button id="s3gt_translate_tooltip_txt_flag_reverse" class="s3gt_translate_tooltip_button s3gt_translate_tooltip_txt_flag"></button>
+			<button id="s3gt_translate_tooltip_txt_copy_reverse" class="s3gt_translate_tooltip_button" title="translate.button.copy.text"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_reverse" class="s3gt_translate_tooltip_button" title="translate.button.sound.play"></button>
+			<button id="s3gt_translate_tooltip_txt_sound_off_reverse" class="s3gt_translate_tooltip_button" title="translate.button.sound.stop"></button>
+			<button id="s3gt_translate_tooltip_txt_google_reverse" class="s3gt_translate_tooltip_button" title="translate.go.google"></button>
+			<button id="s3gt_translate_tooltip_txt_lowercase_reverse" class="s3gt_translate_tooltip_button" title="translate.button.lowercase"></button>
+			<button id="s3gt_translate_tooltip_txt_retry_reverse" class="s3gt_translate_tooltip_button" title="translate.button.repeat.translate"></button>
+			<div id="s3gt_translate_tooltip_wait"></div>
+		</div>
+		<div id="s3gt_translate_tooltip_txt_flag_reverse_box" class="s3gt_translate_tooltip_txt_flag_box">
+			<select id="s3gt_translate_tooltip_lang_reverse" class="s3gt_translate_tooltip_select" title="translate.lang.to"></select>
+			<input id="s3gt_translate_tooltip_save_last_lang_reverse" type="checkbox" title="translate.lang.remember"/>
+			<button id="s3gt_translate_tooltip_txt_lang_close_reverse" class="s3gt_translate_tooltip_button"></button>
+		</div>
+	</div>
+</div>
+	<table id="s3gt_translate_tooltip_variant_box" tabindex="0"><tr><td></td><td></td></tr></table>
+	<div id="s3gt_translate_tooltip_variant_box_template">
+		<div id="template_variant_main" class="s3gt_translate_tooltip_variant_main_word">
+			<div id="template_variant_word" class="s3gt_translate_tooltip_variant"></div>
+			<div id="template_variant_translate" class="s3gt_translate_tooltip_variant_main_translate"></div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

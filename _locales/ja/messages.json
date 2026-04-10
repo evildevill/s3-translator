@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.Translator"
+	},
+	"extension_description": {
+		"message": "さまざまな言語のテキスト、単語およびWeb サイトのページ全体をさまざまな言語に翻訳します。"
+	}
+}

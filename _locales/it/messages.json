@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.Translator"
+	},
+	"extension_description": {
+		"message": "Traduzione di un testo selezionato, introdotto manualmente o di un intero sito da una lingua ad un'altra"
+	}
+}
