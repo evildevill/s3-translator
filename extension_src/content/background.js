@@ -535,6 +535,8 @@ s3gt.init_urls = function(callback, init_tk) {
 	if (init_tk) { s3gt.google_value_tk_init(); }
 	if (callback) { callback(); }
 	s3gt.update_translate_dnr_rules();
+	s3gt.youtube.update_dnr_rules();
+	s3gt.statistics.update_dnr_rules();
 }
 //-----------------------------------------------------------------------------------
 s3gt.google_value_tk_init = function() {
@@ -689,12 +691,16 @@ s3gt.onMessage = function(request, sender, sendResponse) {
 		}
 		else if (request.pref_name == 'default_lang_to') {
 			s3gt.prefs.init_lang_to();
+			s3gt.youtube.update_dnr_rules();
 			s3gt.send_work_data(request.tab_id);
 		}
 		else if (request.pref_name == 'domain_google_translator') {
 			s3gt.init_domain_google_translator(function(){
 				s3gt.send_work_data(request.tab_id);
 			});
+		}
+		else if (request.pref_name == 'translate_subtitles_youtube') {
+			s3gt.youtube.update_dnr_rules();
 		}
 		else if ((request.pref_name == 'autotranslate_allpages') && (request.pref_value)) {
 			chrome.tabs.query({  active: true, currentWindow: true }, function(tab_list) {

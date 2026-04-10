@@ -143,37 +143,31 @@ chrome.webRequest.onCompleted.addListener(function(details) {
 	types: ["main_frame"]
 });
 //------------------------------------------------------------------------------
-chrome.webRequest.onBeforeSendHeaders.addListener(
-	function(info) {
-		var headers = info.requestHeaders;
-		var x_accept = '';
-		//-----------------------------------------------------------------
-		for (var i = 0; i < headers.length; i++) {
-			if (headers[i].name === 's3-x-accept') {
-				x_accept = headers[i].value;
-				headers.splice(i, 1);
-				break;
-			}
-		}
-		//-----------------------------------------------------------------
-		if (x_accept) {
-			var is_ok = false;
-			for (var i = 0; i < headers.length; i++) {
-				if (headers[i].name.toLowerCase() == 'accept') { 
-					headers[i].value = x_accept;
-					is_ok = true;
-					break;
+// MV3: the s3-x-accept custom header is intercepted by a declarativeNetRequest rule
+// (rule ID 3) set up in background.js to replace Accept and strip the custom header.
+s3gt.statistics.update_dnr_rules = function() {
+	var acceptValue = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
+	chrome.declarativeNetRequest.updateDynamicRules({
+		removeRuleIds: [3],
+		addRules: [
+			{
+				id: 3,
+				priority: 1,
+				action: {
+					type: 'modifyHeaders',
+					requestHeaders: [
+						{ header: 's3-x-accept', operation: 'remove' },
+						{ header: 'Accept', operation: 'set', value: acceptValue }
+					]
+				},
+				condition: {
+					requestMethods: ['get'],
+					urlFilter: '||stat.s3blog.org/',
+					resourceTypes: ['xmlhttprequest', 'other']
 				}
 			}
-			if (! is_ok) {
-				headers.push({ 'name' : 'Accept', 'value' : x_accept });
-			}
-		}
-		//-----------------------------------------------------------------
-		return { requestHeaders: headers };
-	},
-	{urls: ["http://*/*", "https://*/*"]},
-	["blocking", "requestHeaders"]
-);
+		]
+	}, function() { if (chrome.runtime.lastError) {} });
+};
 //------------------------------------------------------------------------------
 setTimeout(function() { s3gt.statistics.init(); }, 1000);
