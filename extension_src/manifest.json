@@ -1,38 +1,30 @@
 {
-"update_url": "https://clients2.google.com/service/update2/crx",
-
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "__MSG_extension_name__",
 	"short_name": "__MSG_extension_name__",
 	"description": "__MSG_extension_description__",
 	"author": "Oleksandr Popov",
 	"homepage_url": "https://www.s3blog.org/s3translator.html",
 	"version": "6.29",
-	"minimum_chrome_version": "45",
+	"minimum_chrome_version": "88",
 	"default_locale": "en",
-	"applications": {
-		"gecko": {
-			"id": "s3@translator"
-		}
-	},
 	"icons": {
 		"16": "skin/s3gt_logo_16.png",
 		"32": "skin/s3gt_logo_32.png",
 		"48": "skin/s3gt_logo_48.png"
 	},
-	"browser_action": {
+	"action": {
 		"default_title": "__MSG_extension_name__",
 		"default_icon": "skin/s3gt_logo_16.png",
 		"default_popup": "content/popup.html"
 	},
 	"background": {
-		"page": "content/background.html"
+		"service_worker": "content/background_sw.js"
 	},
 	"options_ui": {
 		"page": "content/options.html",
-		"chrome_style": false,
 		"open_in_tab": true
-	}, 
+	},
 	"content_scripts": [
 		{
 		"js": [ "/content/tab_loader.js" ],
@@ -42,9 +34,10 @@
 		}
 	],
 	"web_accessible_resources": [
-		"/skin/*",
-		"/locale/*",
-		"/content/tooltip_fly.html"
+		{
+			"resources": [ "/skin/*", "/locale/*", "/content/tooltip_fly.html" ],
+			"matches": [ "<all_urls>" ]
+		}
 	],
 	"permissions": [
 		"activeTab",
@@ -56,9 +49,13 @@
 		"clipboardWrite",
 		"clipboardRead",
 		"webRequest",
-		"webRequestBlocking", 
 		"webNavigation",
 		"downloads",
+		"scripting",
+		"declarativeNetRequest",
+		"declarativeNetRequestWithHostAccess"
+	],
+	"host_permissions": [
 		"<all_urls>"
 	]
 }

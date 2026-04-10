@@ -31,9 +31,12 @@ s3gt.init = function() {
 		s3gt.current_tab_domain = s3gt.utils.get_url_domain(tabs[0].url);
 		var translate_hidden = (/^https?\:\/\/.*/.test(tabs[0].url)) ? false : true;
 
-		chrome.tabs.executeScript(s3gt.current_tab_id, { 'file': '/content/tab_check.js', 'runAt' : 'document_start' }, function(callback) {
+		chrome.scripting.executeScript({
+			target: { tabId: s3gt.current_tab_id },
+			files: ['/content/tab_check.js']
+		}).then(function() {
 			//-----------------------------------------------------------
-			if (chrome.runtime.lastError || translate_hidden) {
+			if (translate_hidden) {
 				document.getElementById('translate_page').setAttribute('is_inactive', true);
 				document.getElementById('translate_auto').setAttribute('is_hidden', true);
 				document.getElementById('translate_forget').setAttribute('is_hidden', true);
@@ -64,6 +67,8 @@ s3gt.init = function() {
 			s3gt.translate_forget_check();
 			s3gt.translate_learning_check();
 			s3gt.translate_selection_check();
+			s3gt.action_button_check(translate_hidden);
+		}).catch(function() {
 			s3gt.action_button_check(translate_hidden);
 		});
 	});

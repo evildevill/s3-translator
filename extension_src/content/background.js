@@ -41,36 +41,31 @@ s3gt.init = function() {
 				id: 's3gt_browser_action_translate_page',
 				type : 'normal',
 				title : s3gt.utils.get_string('translate.page'),
-				contexts: ["browser_action"],
-				onclick: function(event){ s3gt.context_browser_action_click(event); }
+				contexts: ["action"]
 			});
 			chrome.contextMenus.create({
 				id: 's3gt_browser_action_translate_learning',
 				type : 'checkbox',
 				title : s3gt.utils.get_string('preference.tab.learning'),
-				contexts: ["browser_action"],
-				onclick: function(event){ s3gt.context_browser_action_click(event); }
+				contexts: ["action"]
 			});
 			chrome.contextMenus.create({
 				id: 's3gt_browser_action_translate_allpages_auto',
 				type : 'checkbox',
 				title : s3gt.utils.get_string('translate.allpages_auto').replace(/\n/g, ' ').replace(/\s+/g, ' '),
-				contexts: ["browser_action"],
-				onclick: function(event){ s3gt.context_browser_action_click(event); }
+				contexts: ["action"]
 			});
 			chrome.contextMenus.create({
 				id: 's3gt_browser_action_go_google',
 				type : 'normal',
 				title : s3gt.utils.get_string('translate.go.google'),
-				contexts: ["browser_action"],
-				onclick: function(event){ s3gt.context_browser_action_click(event); }
+				contexts: ["action"]
 			});
 			chrome.contextMenus.create({
 				id: 's3gt_browser_action_settings',
 				type : 'normal',
 				title : s3gt.utils.get_string('preference.label'),
-				contexts: ["browser_action"],
-				onclick: function(event){ chrome.runtime.openOptionsPage(); }
+				contexts: ["action"]
 			});
 		});
 	});
@@ -139,27 +134,16 @@ s3gt.set_content_scripts = function(tab_id, frame_id, callback, set_all_script) 
 			:
 			[ "/content/tab_loader.js" ];
 
-		var executeScript = function(js_list) {
-			var js_file = js_list.shift();
-			var data = {};
-			data.file = js_file;
-			if (frame_id) {
-				data.matchAboutBlank= true;
-				data.frameId = frame_id;
-			}
-			if (set_all_script) {
-				data.runAt = 'document_start';
-			}
-			chrome.tabs.executeScript(tab_id, data, function() {
-				if (chrome.runtime.lastError) {}
-				if (js_list.length > 0) {
-					executeScript(js_list);
-				} else if (callback) {
-					callback(tab_id);
-				}
-			});
+		var target = { tabId: tab_id };
+		if (frame_id) {
+			target.frameIds = [frame_id];
 		}
-		executeScript(js_list);
+		chrome.scripting.executeScript({
+			target: target,
+			files: js_list
+		}).then(function() {
+			if (callback) { callback(tab_id); }
+		}).catch(function() {});
 	 });
 }
 //------------------------------------------------------------------------------
@@ -239,12 +223,11 @@ s3gt.context_menu_set = function(menu_list) {
 			var translate_hidden = (/^https?\:\/\/.*/.test(tab_list[0].url)) ? false : true;
 			var is_create_separator = false;
 			//-----------------------------------------------------------
-			chrome.tabs.executeScript(tab_list[0].id, { 'file' : '/content/tab_check.js', 'runAt' : 'document_start' }, function(callback) {
+			chrome.scripting.executeScript({
+				target: { tabId: tab_list[0].id },
+				files: ['/content/tab_check.js']
+			}).then(function() {
 				var menu_is_active = ! translate_hidden;
-				//-----------------------------------------------------
-				if (chrome.runtime.lastError) {
-					menu_is_active = false;
-				}
 				//-----------------------------------------------------
 				for (var i=0; i<menu_list.length; i++) {
 					var menu = menu_list[i];
@@ -283,8 +266,8 @@ s3gt.context_menu_set = function(menu_list) {
 							title : menu.title.replace(/\n/g, ' ').replace(/\s+/g, ' '),
 //							parentId: 's3gt_context_popup',
 							contexts: context_list,
-							enabled: (! menu_is_active && menu.is_inactive) ? false : true,
-							onclick: function(event){ s3gt.context_menu_click(event, tab_list[0].id, current_tab_domain); }
+							enabled: (! menu_is_active && menu.is_inactive) ? false : true
+
 						};
 						//-----------------------------------------
 						if (menu.id == 'translate_page') {
@@ -332,7 +315,7 @@ s3gt.context_menu_set = function(menu_list) {
 					}
 					//-----------------------------------------------
 				}
-			});
+			}).catch(function() {});
 		}
 	});
 }
@@ -361,6 +344,22 @@ s3gt.context_browser_action_click = function(event) {
 		}
 	});
 }
+//------------------------------------------------------------------------------
+// MV3: single onClicked listener replaces per-item onclick handlers
+chrome.contextMenus.onClicked.addListener(function(info, tab) {
+	var action_context = ['s3gt_browser_action_translate_page', 's3gt_browser_action_translate_learning',
+		's3gt_browser_action_translate_allpages_auto', 's3gt_browser_action_go_google', 's3gt_browser_action_settings'];
+	if (action_context.indexOf(info.menuItemId) !== -1) {
+		if (info.menuItemId === 's3gt_browser_action_settings') {
+			chrome.runtime.openOptionsPage();
+		} else {
+			s3gt.context_browser_action_click(info);
+		}
+	} else {
+		var current_tab_domain = tab ? s3gt.utils.get_url_domain(tab.url) : '';
+		s3gt.context_menu_click(info, tab ? tab.id : null, current_tab_domain);
+	}
+});
 //------------------------------------------------------------------------------
 s3gt.context_menu_click = function(event, tab_id, current_tab_domain) {
 	var action_id = event.menuItemId;
@@ -535,6 +534,7 @@ s3gt.init_urls = function(callback, init_tk) {
 
 	if (init_tk) { s3gt.google_value_tk_init(); }
 	if (callback) { callback(); }
+	s3gt.update_translate_dnr_rules();
 }
 //-----------------------------------------------------------------------------------
 s3gt.google_value_tk_init = function() {
@@ -974,92 +974,39 @@ s3gt.onMessage = function(request, sender, sendResponse) {
 //	types: ["main_frame"]
 //});
 //------------------------------------------------------------------------------
-var extraInfoSpec = ['blocking', 'requestHeaders'];
-if (chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS')) {
-	extraInfoSpec.push('extraHeaders');
-}
-//------------------------------------------------------------------------------
-chrome.webRequest.onBeforeSendHeaders.addListener(
-	function(info) {
-		// Replace the Referer header
-		var headers = info.requestHeaders;
-		var is_translate_google = false;
-		var x_referer = '';
-		var x_accept = '';
-		var x_secfetchdest = '';
-		var x_secfetchsite = '';
-		//-----------------------------------------------------------------
-		if (/^https?\:\/\/translate\.google/.test(info.url)) {
-			is_translate_google = true;
-			x_referer = s3gt.work_data.url_google_site;
-		}
-		//-----------------------------------------------------------------
-		var header = null;
-		var new_headers = [];
-		while (header = headers.shift()) {
-			if (is_translate_google && /^X\-/.test(header.name)) {
-			}
-			else if (is_translate_google && /DNT/.test(header.name)) {
-			}
-			else if (is_translate_google && /Origin/.test(header.name)) {
-			}
-			else if (header.name === 'x-referer') {
-				x_referer = header.value;
-			}
-			else if (header.name === 'x-accept') {
-				x_accept = header.value;
-			}
-			else if (header.name === 'x-secfetchdest') {
-				x_secfetchdest = header.value;
-			}
-			else if (header.name === 'x-secfetchsite') {
-				x_secfetchsite = header.value;
-			} else {
-				new_headers.push(header);
+// MV3: use declarativeNetRequest dynamic rules to modify headers for Google Translate requests.
+// Rules strip sensitive request headers and set Referer/Sec-Fetch-* for translate.google.com.
+s3gt.update_translate_dnr_rules = function() {
+	var referer = (s3gt.work_data && s3gt.work_data.url_google_site) ? s3gt.work_data.url_google_site : 'https://translate.google.com/';
+	var rules = [
+		{
+			id: 1,
+			priority: 1,
+			action: {
+				type: 'modifyHeaders',
+				requestHeaders: [
+					{ header: 'Referer', operation: 'set', value: referer },
+					{ header: 'Origin', operation: 'remove' },
+					{ header: 'DNT', operation: 'remove' },
+					{ header: 'Sec-Fetch-Dest', operation: 'set', value: 'empty' },
+					{ header: 'Sec-Fetch-Site', operation: 'set', value: 'same-origin' },
+					{ header: 'x-referer', operation: 'remove' },
+					{ header: 'x-accept', operation: 'remove' },
+					{ header: 'x-secfetchdest', operation: 'remove' },
+					{ header: 'x-secfetchsite', operation: 'remove' }
+				]
+			},
+			condition: {
+				urlFilter: '||translate.google.',
+				resourceTypes: ['xmlhttprequest', 'script', 'image', 'other', 'main_frame', 'sub_frame']
 			}
 		}
-		headers = new_headers;
-
-		//-----------------------------------------------------------------
-		if (x_referer || x_accept || x_secfetchdest || x_secfetchsite) {
-			for (var i = 0; i < headers.length; i++) {
-				if (x_referer && (headers[i].name.toLowerCase() == 'referer')) { 
-					headers[i].value = x_referer;
-					x_referer = '';
-				}
-				else if (x_accept && (headers[i].name.toLowerCase() == 'accept')) { 
-					headers[i].value = x_accept;
-					x_accept = '';
-				}
-				else if (x_secfetchdest && (headers[i].name.toLowerCase() == 'sec-fetch-dest')) { 
-					headers[i].value = x_secfetchdest;
-					x_secfetchdest = '';
-				}
-				else if (x_secfetchsite && (headers[i].name.toLowerCase() == 'sec-fetch-site')) { 
-					headers[i].value = x_secfetchsite;
-					x_secfetchsite = '';
-				}
-
-			}
-			if (x_referer) {
-				headers.push({ 'name' : 'Referer', 'value' : x_referer });
-			}
-			if (x_accept) {
-				headers.push({ 'name' : 'Accept', 'value' : x_accept });
-			}
-			if (x_secfetchdest) {
-				headers.push({ 'name' : 'Sec-Fetch-Dest', 'value' : x_secfetchdest });
-			}
-			if (x_secfetchsite) {
-				headers.push({ 'name' : 'Sec-Fetch-Site', 'value' : x_secfetchsite });
-			}
-		}
-		//-----------------------------------------------------------------
-		return { requestHeaders: headers };
-	},
-	{urls: ["http://*/*", "https://*/*"]},
-	extraInfoSpec
-);
+	];
+	chrome.declarativeNetRequest.updateDynamicRules({
+		removeRuleIds: [1],
+		addRules: rules
+	}, function() { if (chrome.runtime.lastError) {} });
+};
 //------------------------------------------------------------------------------
 // check Content Security Policy  "style-src" for styles fly-window and bottom panel
 //------------------------------------------------------------------------------
@@ -1085,7 +1032,7 @@ chrome.webRequest.onHeadersReceived.addListener(
 		urls: ["http://*/*", "https://*/*"],
 		types: ["main_frame"]
 	},
-	["responseHeaders"]
+	["responseHeaders", "extraHeaders"]
 );
 //------------------------------------------------------------------------------
 // chrome.tabs.onHighlighted.addListener(function(){ s3gt.init_general_data(); });
