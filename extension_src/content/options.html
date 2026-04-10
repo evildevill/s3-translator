@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title label="extension_name :: preference.label"></title>
+		<link rel="shortcut icon" href="/skin/s3gt_logo_16.png" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="/skin/options.css" />
+		<script type="text/javascript" src="/content/options.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/utils.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/i18n.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/prefs.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/locale/supported.js" charset="utf-8"></script>
+
+		<script type="text/javascript" src="/content/action.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/translate.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/learning.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/tooltip.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/thtml.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/hotkeys.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/sound.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/content/s3gt_main.js" charset="utf-8"></script>
+
+		<link rel="stylesheet" type="text/css" href="/content/tabs/tabs.css" />
+		<script type="text/javascript" src="/content/tabs/tabs.js" charset="utf-8"></script>
+	</head>
+<body>
+<form id="s3gt_form" action="#">
+<center>
+<table align="center" border="0" cellpadding="0" cellspacing="0" id="tabsBox">
+	<tr valign="bottom">
+		<td>
+			<span style="font-size: 1.5em;"><span label="extension_name"></span><span> - </span><span label="preference.label"></span></span><br/>
+		</td>
+		<td align="right"><div id="addon_version"></div><div style="margin-bottom: 5px;"><span id="settings_saved" is_hidden="true" label="message.settings.saved"></span></div></td>
+	</tr>
+	<tr>
+		<td class="tabsBox" colspan="2">
+			<div style="float: right; width: 200px; text-align: right;"><select id="current_locale" name="current_locale"></select></div>
+			<ul id="tabs"  class="tabs">
+				<li><a href="#translateTab" label="preference.tab.translate"></a></li>
+				<li><a href="#translatePageTab" label="preference.tab.translate.page"></a></li>
+				<li><a href="#translateTextTab" label="preference.tab.translate.text"></a></li>
+				<li><a href="#translateLearningTab" label="preference.tab.learning"></a></li>
+				<li><a href="#translateContextMenuTab" label="preference.tab.context_menu"></a></li>
+				<li><a href="#translateClipboardTab" label="preference.tab.clipboard"></a></li>
+				<li><a href="#translateOthersTab" label="preference.tab.others"></a></li>
+			</ul>
+
+<!-- translateTab -->
+<div class="tabContent" id="translateTab">
+	<!-- ============================== -->
+	<div class="groupbox" caption="true">
+		<div class="caption"><span label="preference.default.lang.to"/></div>
+		<select id="default_lang_to" name="default_lang_to"></select>
+	</div>
+	<!-- ============================== -->
+	<div class="groupbox" caption="true">
+		<div class="caption"><input type="checkbox" id="languages_for_translation_all" label="preference.languages.for.translation"/></div>
+		<div id="s3gt-list-disabled-lang-to"></div>
+		<div id="template_disabled_lang_list" is_hidden="true"><div><label><input type="checkbox" id="disabled_lang_list_checkbox"/><span id="disabled_lang_list_label"></span></label></div></div>
+	</div>
+	<!-- ============================== -->
+	<div class="groupbox" caption="true">
+		<div class="caption"><span label="preference.subtitle.youtube"/></div>
+		<input type="checkbox" label="preference.subtitle.youtube.enable" name="translate_subtitles_youtube"/>
+	</div>
+	<!-- ============================== -->
+	<div class="groupbox" caption="true">
+		<div class="caption"><div style="float: left; border: none; background-color: #FFFFFF"><div id="hotkey_button_plus" class="prefs_button_plus"></div></div><span style="margin-left: 5px;" label="preference.hotkeys.caption"/></span></div>
+		<div id="hotkeys_template" hidden="true">
+			<div id="hotkeys_box">
+				<div id="hotkey_button_minus" class="prefs_button_minus"></div>
+				<input type="text" id="hotkeys_textbox" width="200"/>
+				<select id="hotkeys_list_method">
+					<option value="translate_page" label="translate.page"></option>
+					<option value="translate_selection" label="translate.selection"></option>
+					<option value="translate_selection_plus_page" label="translate.page / translate.selection"></option>
+					<option value="translate_custom" label="translate.custom"></option>
+					<option value="translate_clipboard" label="translate.clipboard"></option>
+					<option value="translate_selection_sound" label="translate.button.sound.play"></option>
+				</select>
+			</div>
+		</div>
+		<table id="hotkeys_list" cellpadding="0" cellspacing="0"></table>
+	</div>
+	<!-- ============================== -->
+	<div class="groupbox">
+		<table><tr>
+			<td><img id="ext_icon" src="/skin/s3gt-button-click.png"></td>
+			<td><div style="padding: 0 10px" label="preference.actions.click.icon"></div></td>
+			<td><select name="action_button_click_icon">
+				<option value="menu" label="preference.actions.menu"></option>
+				<option value="translate_page" label="translate.page"></option>
+				<option value="translate_page_google" label="translate.page.google"></option>
+				<option value="translate_selection" label="translate.selection"></option>
+				<option value="translate_custom" label="translate.custom"></option>
+				<option value="translate_clipboard" label="translate.clipboard"></option>
+				<option value="go_google" label="translate.go.google"></option>
+			</select></td>
+		</tr></table>
+	</div>
+	<!-- ============================== -->
+	<div class="groupbox">
+		<span label="preference.domain_google_translator"/></span>
+		<input type="text" name="domain_google_translator" id="domain_google_translator"/>
+	</div>
+</div>
+
+<!-- translatePageTab -->
+<div class="tabContent" id="translatePageTab">
+	<div class="groupbox" caption="true">
+		<div class="caption"><span label="preference.auto.translate"/></div>
+		<input type="radio" name="autotranslate" label="preference.auto.translate.check" value="check"/><br/>
+		<input type="radio" name="autotranslate" label="preference.auto.translate.run" value="run"/><br/>
+		<input type="radio" name="autotranslate" label="preference.auto.translate.not.ask" value="not-ask"/><br/>
+		<input type="radio" name="autotranslate" label="preference.auto.translate.stop" value="stop"/><br/>
+		<br/>
+
+		<input type="checkbox" label="translate.allpages_auto" label_nobr="true" name="autotranslate_allpages"/><br/>
+
+		<br/><input type="button" id="s3gt-preference-remove-history-sites" label="preference.remove.history.sites"/>
+	</div><br/>
+
+	<div class="groupbox">
+		<input type="checkbox" label="preference.clean.site.after.google" name="clean_site_after_google"/><br/>
+		<input type="checkbox" label="preference.page.show.only.selected.languages" name="translate_page_show_only_selected_languages"/><br/>
+		<input type="checkbox" label="preference.hide.header.after.google" name="translate_page_hide_header"/><br/>
+		<input type="checkbox" label="preference.promt.https" name="promt_https"/><br/>
+	</div><br/>
+
+	<br/><br/><br/><div label="preference.translate.page.note"></div>
+</div>
+
+<!-- translateTextTab -->
+<div class="tabContent" id="translateTextTab">
+	<ul id="tabs-translateText" class="tabs tabs_mini">
+		<li><a href="#translateTextTab--basicFunctions" label="preference.actions.basic.functions"></a></li>
+		<li><a href="#translateTextTab--selectedText" label="preference.actions.selected.text"></a></li>
+		<li><a href="#translateTextTab--singleWord" label="preference.actions.single_word"></a></li>
+	</ul>
+	<!-- ============================== -->
+	<div class="tabContent" is_mini="true" id="translateTextTab--basicFunctions">
+		<!-- ----------------------------------------------- -->
+		<div class="groupbox">
+			<input type="radio" name="basic_functions_in_panel" label="preference.actions.basic.functions.tooltip" value="false"/><br/>
+			<input type="radio" name="basic_functions_in_panel" label="preference.actions.basic.functions.panel" value="true"/><br/>
+			<br/><br/>
+			<div style="padding-bottom: 10px;" label="preference.actions.basic.functions.note"></div>
+			<div label="preference.actions.basic.functions.note.example"></div>
+		</div>
+		<div class="groupbox">
+			<div label="preference.actions.default.pin.tooltip"></div>
+			<label class="is_middle"><input type="radio" name="translate_tooltip_pin" value="close"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-close.png"><span label="translate.button.pin.close"></span></label><br/>
+			<label class="is_middle"><input type="radio" name="translate_tooltip_pin" value="onetab"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-onetab.png"><span label="translate.button.pin.onetab"></span></label><br/>
+			<label class="is_middle"><input type="radio" name="translate_tooltip_pin" value="alltabs"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-alltabs.png"><span label="translate.button.pin.alltabs"></span></label><br/>
+			<br/>
+
+			<div label="preference.actions.default.pin.panel"></div>
+			<label class="is_middle"><input type="radio" name="translate_panel_pin" value="close"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-close.png"><span label="translate.button.pin.close"></span></label><br/>
+			<label class="is_middle"><input type="radio" name="translate_panel_pin" value="onetab"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-onetab.png"><span label="translate.button.pin.onetab"></span></label><br/>
+			<label class="is_middle"><input type="radio" name="translate_panel_pin" value="alltabs"/><img style="border: 1px #dddddd solid; margin: 0 5px;" src="/skin/s3gt-button-pin-alltabs.png"><span label="translate.button.pin.alltabs"></span></label><br/>
+			<br/>
+
+			<input type="checkbox" name="translate_box_restore_restart" label="preference.actions.restore.translate.windows"/><br/>
+		</div>
+	</div>
+	<!-- ============================== -->
+	<div class="tabContent" is_mini="true" id="translateTextTab--selectedText">
+		<!-- ----------------------------------------------- -->
+		<div class="groupbox" caption="true">
+			<div class="caption"><input type="checkbox" name="translate_selection_fly" label="preference.actions.selected.text.tooltip" id="translate_selection_fly"/></div>
+			<div style="padding-left: 20px;" id="translate_selection_fly_translate_box">
+				<input type="checkbox" name="translate_selection_fly_translate" label="preference.actions.selected.text.tooltip.translate" id="translate_selection_fly_translate"/><br/>
+				<input type="checkbox" name="translate_selection_fly_translate_plus" label="preference.actions.selected.text.tooltip.translate_plus" id="translate_selection_fly_translate_plus"/><br/>
+				<input type="checkbox" name="translate_selection_fly_sound" label="preference.actions.selected.text.tooltip.sound" id="translate_selection_fly_sound"/><br/>
+				<input type="checkbox" name="translate_selection_fly_copy" label="preference.actions.selected.text.tooltip.copy" id="translate_selection_fly_copy"/><br/>
+				<div>
+					<span id="translate_selection_timer_label" label="preference.actions.selected.text.timer"></span>
+					<input type="range" id="translate_selection_timer" name="translate_selection_timer" min="0" max="3000" step="50"/>
+					<span id="translate_selection_timer_data"></span>
+					<span id="translate_selection_timer_ms" label="preference.actions.selected.text.timer.ms"></span>
+				</div>
+				<div>
+					<div label="preference.actions.text.open.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_fly_translate_open" label="preference.actions.text.open.default" value="default" id="translate_selection_fly_translate_default"/><br/>
+					<input type="radio" name="translate_selection_fly_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_selection_fly_translate_open_fly"/><br/>
+					<input type="radio" name="translate_selection_fly_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_selection_fly_translate_open_panel"/><br/>
+
+					<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_fly_window_new" label="preference.actions.text.new.default" value="default" id="translate_selection_fly_window_new_default"/><br/>
+					<input type="radio" name="translate_selection_fly_window_new" label="preference.actions.text.new.always" value="always" id="translate_selection_fly_window_new_always"/><br/>
+					<input type="radio" name="translate_selection_fly_window_new" label="preference.actions.text.new.ctrl.fly" value="ctrl_fly" id="translate_selection_fly_window_new_ctrl_fly"/><br/>
+					<input type="radio" name="translate_selection_fly_window_new" label="preference.actions.text.new.ctrl.panel" value="ctrl_panel" id="translate_selection_fly_window_new_ctrl_panel"/><br/>
+				</div>
+			</div>
+		</div>
+		<!-- ----------------------------------------- -->
+		<div class="groupbox" caption="true">
+			<div class="caption"><input type="checkbox" name="translate_selection_middle_click" label="preference.actions.selected.text.middle_click" id="translate_selection_middle_click"/></div>
+			<div style="padding-left: 20px;" id="translate_selection_middle_click_action">
+				<input type="radio" name="translate_selection_middle_click_action" value="translate" label="preference.actions.selected.text.middle_click.translate" id="translate_selection_middle_click_action_translate"/><br/>
+				<input type="radio" name="translate_selection_middle_click_action" value="translate_on_it" label="preference.actions.selected.text.middle_click.translate_on_it" id="translate_selection_middle_click_action_translate_on_it"/><br/>
+				<input type="radio" name="translate_selection_middle_click_action" value="tooltip" label="preference.actions.selected.text.middle_click.tooltip" id="translate_selection_middle_click_action_tooltip"/><br/>
+				<div style="padding-left: 20px;">
+					<input type="checkbox" name="translate_selection_middle_click_translate" label="preference.actions.selected.text.tooltip.translate" id="translate_selection_middle_click_translate"/><br/>
+					<input type="checkbox" name="translate_selection_middle_click_translate_plus" label="preference.actions.selected.text.tooltip.translate_plus" id="translate_selection_middle_click_translate_plus"/><br/>
+					<input type="checkbox" name="translate_selection_middle_click_sound" label="preference.actions.selected.text.tooltip.sound" id="translate_selection_middle_click_sound"/><br/>
+					<input type="checkbox" name="translate_selection_middle_click_copy" label="preference.actions.selected.text.tooltip.copy" id="translate_selection_middle_click_copy"/><br/>
+				</div>
+				<div>
+					<div label="preference.actions.text.open.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_middle_click_translate_open" label="preference.actions.text.open.default" value="default" id="translate_selection_middle_click_translate_default"/><br/>
+					<input type="radio" name="translate_selection_middle_click_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_selection_middle_click_translate_open_fly"/><br/>
+					<input type="radio" name="translate_selection_middle_click_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_selection_middle_click_translate_open_panel"/><br/>
+
+					<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_middle_click_window_new" label="preference.actions.text.new.default" value="default" id="translate_selection_middle_click_window_new_default"/><br/>
+					<input type="radio" name="translate_selection_middle_click_window_new" label="preference.actions.text.new.always" value="always" id="translate_selection_middle_click_window_new_always"/><br/>
+					<input type="radio" name="translate_selection_middle_click_window_new" label="preference.actions.text.new.ctrl.fly" value="ctrl_fly" id="translate_selection_middle_click_window_new_ctrl_fly"/><br/>
+					<input type="radio" name="translate_selection_middle_click_window_new" label="preference.actions.text.new.ctrl.panel" value="ctrl_panel" id="translate_selection_middle_click_window_new_ctrl_panel"/><br/>
+				</div>
+			</div>
+		</div>
+		<!-- ----------------------------------------- -->
+		<div class="groupbox" caption="true">
+			<div class="caption"><input type="checkbox" name="translate_selection_long_click" label="preference.actions.selected.text.long_click" id="translate_selection_long_click"/></div>
+			<div style="padding-left: 20px;" id="translate_selection_long_click_action">
+				<input type="radio" name="translate_selection_long_click_action" value="translate" label="preference.actions.selected.text.long_click.translate" id="translate_selection_long_click_action_translate"/><br/>
+				<input type="radio" name="translate_selection_long_click_action" value="tooltip" label="preference.actions.selected.text.long_click.tooltip" id="translate_selection_long_click_action_tooltip"/><br/>
+				<div style="padding-left: 20px;">
+					<input type="checkbox" name="translate_selection_long_click_translate" label="preference.actions.selected.text.tooltip.translate" id="translate_selection_long_click_translate"/><br/>
+					<input type="checkbox" name="translate_selection_long_click_translate_plus" label="preference.actions.selected.text.tooltip.translate_plus" id="translate_selection_long_click_translate_plus"/><br/>
+					<input type="checkbox" name="translate_selection_long_click_sound" label="preference.actions.selected.text.tooltip.sound" id="translate_selection_long_click_sound"/><br/>
+					<input type="checkbox" name="translate_selection_long_click_copy" label="preference.actions.selected.text.tooltip.copy" id="translate_selection_long_click_copy"/><br/>
+				</div>
+				<div>
+					<div label="preference.actions.text.open.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_long_click_translate_open" label="preference.actions.text.open.default" value="default" id="translate_selection_long_click_translate_default"/><br/>
+					<input type="radio" name="translate_selection_long_click_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_selection_long_click_translate_open_fly"/><br/>
+					<input type="radio" name="translate_selection_long_click_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_selection_long_click_translate_open_panel"/><br/>
+
+					<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_selection_long_click_window_new" label="preference.actions.text.new.default" value="default" id="translate_selection_long_click_window_new_default"/><br/>
+					<input type="radio" name="translate_selection_long_click_window_new" label="preference.actions.text.new.always" value="always" id="translate_selection_long_click_window_new_always"/><br/>
+					<input type="radio" name="translate_selection_long_click_window_new" label="preference.actions.text.new.ctrl.fly" value="ctrl_fly" id="translate_selection_long_click_window_new_ctrl_fly"/><br/>
+					<input type="radio" name="translate_selection_long_click_window_new" label="preference.actions.text.new.ctrl.panel" value="ctrl_panel" id="translate_selection_long_click_window_new_ctrl_panel"/><br/>
+				</div>
+				<div>
+					<span id="translate_selection_long_click_timer_label" label="preference.actions.selected.text.long_click.timer"></span>
+					<input type="range" id="translate_selection_long_click_timer" name="translate_selection_long_click_timer" min="50" max="3000" step="50"/>
+					<span id="translate_selection_long_click_timer_data"></span>
+					<span id="translate_selection_long_click_timer_ms" label="preference.actions.selected.text.long_click.timer.ms"></span>
+				</div>
+			</div>
+		</div>
+		<!-- ----------------------------------------- -->
+		<div class="groupbox">
+			<span label="preference.translate.fly.auto.key"></span>
+			<select name="translate_selection_fly_auto" id="translate_selection_fly_auto">
+				<option value="disabled" label="preference.disable.label"/>
+				<option value="alt" label="Alt"/>
+				<option value="alt_shift" label="Alt + Shift"/>
+				<option value="ctrl" label="Ctrl"/>
+			</select>
+			<div id="translate_selection_fly_auto_action" style="padding-left: 20px;">
+				<div label="preference.actions.text.open.label" style="padding-top: 10px;"></div>
+				<input type="radio" name="translate_selection_fly_auto_translate_open" label="preference.actions.text.open.default" value="default" id="translate_selection_fly_auto_translate_default"/><br/>
+				<input type="radio" name="translate_selection_fly_auto_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_selection_fly_auto_translate_open_fly"/><br/>
+				<input type="radio" name="translate_selection_fly_auto_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_selection_fly_auto_translate_open_panel"/><br/>
+
+				<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+				<input type="radio" name="translate_selection_fly_auto_window_new" label="preference.actions.text.new.default" value="default" id="translate_selection_fly_auto_window_new_default"/><br/>
+				<input type="radio" name="translate_selection_fly_auto_window_new" label="preference.actions.text.new.always" value="always" id="translate_selection_fly_auto_window_new_always"/><br/>
+			</div>
+		</div>
+		<!-- ----------------------------------------- -->
+		<br/>
+		<input type="checkbox" name="tooltip_check_page_language" label="preference.actions.text.tooltip_check_page_language"/><br/>
+		<input type="checkbox" name="tooltip_check_cyrillic" label="preference.actions.text.tooltip_check_cyrillic"/><br/>
+		<!-- ----------------------------------------- -->
+		<br/><br/><div label="preference.actions.selected.text.note"></div>
+	</div>
+	<!-- ============================== -->
+	<div class="tabContent" is_mini="true" id="translateTextTab--singleWord">
+		<div class="groupbox" caption="true">
+			<div class="caption"><span label="preference.actions.single_word.caption"></span></div>
+			<div style="padding-left: 20px;">
+				<div>
+					<input type="checkbox" name="translate_word_fly" label="preference.actions.single_word.key"/>
+					<select name="translate_word_fly_key">
+						<option value="alt" label="Alt"/>
+						<option value="alt_shift" label="Alt + Shift"/>
+						<option value="ctrl" label="Ctrl"/>
+					</select>
+				</div>
+				<input type="checkbox" name="translate_word_fly_sound" label="preference.sound.auto"/><br/>
+				<input type="checkbox" name="translate_word_fly_long_click" label="preference.actions.single_word.long_click"/><br/>
+				<div>
+					<span id="translate_word_fly_long_click_timer_label" label="preference.actions.selected.text.long_click.timer"></span>
+					<input type="range" id="translate_word_fly_long_click_timer" name="translate_word_fly_long_click_timer" min="50" max="3000" step="50"/>
+					<span id="translate_word_fly_long_click_timer_data"></span>
+					<span id="translate_word_fly_long_click_timer_ms_word" label="preference.actions.selected.text.long_click.timer.ms"></span>
+				</div>
+				<div>
+					<div label="preference.actions.text.open.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_word_fly_translate_open" label="preference.actions.text.open.default" value="default" id="translate_word_fly_translate_default"/><br/>
+					<input type="radio" name="translate_word_fly_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_word_fly_translate_open_fly"/><br/>
+					<input type="radio" name="translate_word_fly_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_word_fly_translate_open_panel"/><br/>
+
+					<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+					<input type="radio" name="translate_word_fly_window_new" label="preference.actions.text.new.default" value="default" id="translate_word_fly_window_new_default"/><br/>
+					<input type="radio" name="translate_word_fly_window_new" label="preference.actions.text.new.always" value="always" id="translate_word_fly_window_new_always"/><br/>
+					<input type="radio" name="translate_word_fly_window_new" label="preference.actions.text.new.ctrl.fly" value="ctrl_fly" id="translate_word_fly_window_new_ctrl_fly"/><br/>
+					<input type="radio" name="translate_word_fly_window_new" label="preference.actions.text.new.ctrl.panel" value="ctrl_panel" id="translate_word_fly_window_new_ctrl_panel"/><br/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- translateLearningTab -->
+<div class="tabContent" id="translateLearningTab">
+	<div class="groupbox" caption="true">
+		<div class="caption"><input type="checkbox" name="learning_enable" id="s3gt-learning_enable" label="preference.learning.enable"/></div>
+		<table>
+			<tr valign="top">
+				<td><span label="preference.learning.only.http" id="s3gt-learning_only_http_label"></span></td>
+				<td><input type="checkbox" id="s3gt-learning_only_http" name="learning_only_http"/></td>
+			</tr>
+			<tr valign="top">
+				<td><span label="preference.learning.lang.from" id="s3gt-learning_lang_from_label"></span></td>
+				<td><select id="s3gt-learning_lang_from" name="learning_lang_from"></select></td>
+			</tr>
+			<tr valign="top">
+				<td><span label="preference.learning.lang.to" id="s3gt-learning_lang_to_label"></span></td>
+				<td><select id="s3gt-learning_lang_to" name="learning_lang_to"></select></td>
+			</tr>
+			<tr valign="top">
+				<td><span label="preference.learning.max.count" id="s3gt-learning_max_count_label"></span></td>
+				<td><input type="number" id="s3gt-learning_max_count" name="learning_max_count"/></td>
+			</tr>
+			<tr valign="top">
+				<td><span label="preference.learning.min.length" id="s3gt-learning_min_length_label"></span></td>
+				<td><input type="number" id="s3gt-learning_min_length" name="learning_min_length"/></td>
+			</tr>
+			<tr valign="top">
+				<td><span label="preference.learning.show.translation.tooltip" id="s3gt-learning_show_translation_in_tooltip_label"></span></td>
+				<td><input type="checkbox" id="s3gt-learning_show_translation_in_tooltip" name="learning_show_translation_in_tooltip"/></td>
+			</tr>
+			<tr valign="top">
+				<td align="right"><span label="preference.learning.border.color" id="s3gt-learning_border_label"></span></td>
+				<td><input type="checkbox" id="s3gt-learning_border" name="learning_border"/>
+					<input type="color" id="s3gt-learning_border_color" name="learning_border_color"/></td>
+			</tr>
+			<tr valign="top">
+				<td align="right"><span label="preference.learning.font.color" id="s3gt-learning_font_label"></span></td>
+				<td><input type="checkbox" id="s3gt-learning_font" name="learning_font"/>
+					<input type="color" id="s3gt-learning_font_color" name="learning_font_color"/></td>
+			</tr>
+			<tr valign="top">
+				<td align="right"><span label="preference.learning.background.color" id="s3gt-learning_background_label"></span></td>
+				<td><input type="checkbox" id="s3gt-learning_background" name="learning_background"/>
+					<input type="color" id="s3gt-learning_background_color" name="learning_background_color"/></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- translateContextMenuTab -->
+<div class="tabContent" id="translateContextMenuTab">
+	<div class="groupbox">
+		<input type="checkbox" label="translate.page" name="context_menu_translate_page"/><br/>
+		<input type="checkbox" label="translate.page.google" name="context_menu_translate_page_google"/><br/>
+		<input type="checkbox" label="translate.auto [URL]" name="context_menu_translate_auto"/><br/>
+		<input type="checkbox" label="translate.forget" name="context_menu_translate_forget"/><br/>
+
+		<input type="checkbox" label="--------------------------------------" name="context_menu_translate_allpages_auto_separator"/><br/>
+		<input type="checkbox" label="translate.allpages_auto" name="context_menu_translate_allpages_auto" label_nobr="true"/><br/>
+
+		<input type="checkbox" label="--------------------------------------" name="context_menu_translate_learning_separator"/><br/>
+		<input type="checkbox" label="preference.tab.learning" name="context_menu_translate_learning"/><br/>
+
+		<input type="checkbox" label="--------------------------------------" name="context_menu_translate_text_separator"/><br/>
+		<input type="checkbox" label="translate.clipboard" name="context_menu_translate_clipboard"/><br/>
+		<input type="checkbox" label="translate.custom" name="context_menu_translate_custom"/><br/>
+		<input type="checkbox" label="--------------------------------------" name="context_menu_translate_go_google_separator"/><br/>
+		<input type="checkbox" label="translate.go.google" name="context_menu_translate_go_google"/><br/>
+
+		<input type="checkbox" label="--------------------------------------" name="context_menu_translate_settings_separator"/><br/>
+		<input type="checkbox" label="preference.label" name="context_menu_translate_settings"/><br/>
+		<br/>
+
+
+		<input type="checkbox" label="translate.selection" name="context_menu_translate_selection"/><br/>
+		<!-- ----------------------------------------------- -->
+		<div class="groupbox" style="margin-left: 40px; padding-bottom: 10px; display: inline-block;">
+			<div label="preference.context.selection.impossible_target"></div>
+			<input type="radio" name="translate_selection_impossible_target" label="preference.context.selection.impossible_target.notifycation" value="notifycation"/><br/>
+			<input type="radio" name="translate_selection_impossible_target" label="preference.context.selection.impossible_target.google" value="google"/><br/>
+		</div><br/>
+		<!-- ----------------------------------------------- -->
+		<input type="checkbox" label="translate.button.sound.play" name="context_menu_translate_selection_sound"/><br/>
+		<br/><br/>
+	</div>
+</div>
+
+<!-- translateClipboardTab -->
+<div class="tabContent" id="translateClipboardTab">
+	<div class="groupbox" caption="true">
+		<div class="caption"><span label="preference.tab.clipboard.translate"></span></div>
+		<div style="padding-bottom: 10px;">
+			<div label="preference.actions.text.open.label"></div>
+			<input type="radio" name="translate_clipboard_translate_open" label="preference.actions.text.open.default" value="default" id="translate_clipboard_translate_default"/><br/>
+			<input type="radio" name="translate_clipboard_translate_open" label="preference.actions.text.open.fly" value="fly" id="translate_clipboard_translate_open_fly"/><br/>
+			<input type="radio" name="translate_clipboard_translate_open" label="preference.actions.text.open.panel" value="panel" id="translate_clipboard_translate_open_panel"/><br/>
+	
+			<div label="preference.actions.text.new.label" style="padding-top: 10px;"></div>
+			<input type="radio" name="translate_clipboard_window_new" label="preference.actions.text.new.default" value="default" id="translate_clipboard_window_new_default"/><br/>
+			<input type="radio" name="translate_clipboard_window_new" label="preference.actions.text.new.always" value="always" id="translate_clipboard_window_new_always"/><br/>
+		</div>
+	</div>
+	<div class="groupbox">
+		<input type="checkbox" name="copy_clipboard_notification" label="preference.copy_clipboard_notification"/><br/>
+	</div>
+</div>
+
+<!-- translateOthersTab -->
+<div class="tabContent" id="translateOthersTab">
+	<div class="groupbox" caption="true" id="statistics">
+		<div class="caption"><span label="statistics_title.label" id="s3gt_tab_statistics_label"></span></div>
+		<div>
+			<span id="statistics_is_enabled"  label="statistics_is_enabled.label"></span>
+			<span id="statistics_is_disabled" label="statistics_is_disabled.label"></span>
+			<input type="button" id="statistics_change_status" label="statistics_change_status.label"/>
+		</div>
+	</div>
+
+	<div class="groupbox">
+		<div style="padding-bottom: 10px;">
+			<span label="preference.sound_playback_rate.label"></span>
+			<input type="range" id="sound_playback_rate" name="sound_playback_rate" min="50" max="150" step="1"/>
+			<span id="sound_playback_rate_label"></span>
+		</div>
+		<table>
+			<tr>
+				<td><div class="button_sound_on" id="button_sound_on_1" title="translate.button.sound.play"></div>
+				<td><div style="font-family: monospace;">[en]</div>
+				<td><div id="sound_playback_test_text_1" lang="en">This is a test text: 1, 2, 3, 100, 500, 1000. Thank you!</div>
+			</tr>
+			<tr>
+				<td><div class="button_sound_on" id="button_sound_on_2" title="translate.button.sound.play"></div>
+				<td><div style="font-family: monospace;">[fr]</div>
+				<td><div id="sound_playback_test_text_2" lang="fr">Ceci est un texte d'essai : 1, 2, 3, 100, 500, 1000. Merci !</div>
+			</tr>
+			<tr>
+				<td><div class="button_sound_on" id="button_sound_on_3" title="translate.button.sound.play"></div>
+				<td><div style="font-family: monospace;">[de]</div>
+				<td><div id="sound_playback_test_text_3" lang="de">Dies ist ein Testtext: 1, 2, 3, 100, 500, 1000. Dank!</div>
+			</tr>
+			<tr>
+				<td><div class="button_sound_on" id="button_sound_on_4" title="translate.button.sound.play"></div>
+				<td><div style="font-family: monospace;">[ru]</div>
+				<td><div id="sound_playback_test_text_4" lang="ru">Это тестовый текст: 1, 2, 3, 100, 500, 1000. Спасибо!</div>
+			</tr>
+			<tr>
+				<td><div class="button_sound_on" id="button_sound_on_5" title="translate.button.sound.play"></div>
+				<td><div style="font-family: monospace;">[it]</div>
+				<td><div id="sound_playback_test_text_5" lang="it">Questo è un test. 1, 2, 3, 100, 500, 1000. Grazie!</div>
+			</tr>
+		</table>
+	</div>
+	<div class="groupbox">
+		<input type="checkbox" name="complete_beep" label="preference.complete_beep"/><br/>
+		<input type="checkbox" name="ignore_pdf_linebreaks" label="preference.ignore_pdf_linebreaks"/><br/>
+	</div>
+</div>
+
+<table width="100%"><tr>
+	<td style="white-space: nowrap;">
+	<input type="button" id="save_settings" label="preference_save.label"/>
+	<input type="button" id="copy_settings" label="preference_copy.label"/>
+	<input type="button" id="load_settings" label="preference_load.label"/>
+	<input id="load_settings_file" type="file" style="display: none"/>
+	</td><td align="right">
+	<input type="button" id="reset_settings" label="preference_default.label"/>
+	</td>
+</tr></table>
+
+		</td>
+	</tr>
+</table>
+</form></center>
+</body>
+</html>

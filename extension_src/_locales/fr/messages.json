@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.Traducteur"
+	},
+	"extension_description": {
+		"message": "Traduction de texte saisi au clavier ou sélectionné, ou d'une page web complète, depuis n'importe quelle langue vers n'importe quelle autre."
+	}
+}

@@ -1,0 +1,59 @@
+option {
+	background-color: #353431 !important;
+}
+#s3gt_translate_tooltip:not([is_mini='true']) {
+	background-color: #353431;
+	color: #E6E6E6;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 0 5px 2px rgba(40,40,40,0.7);
+}
+#s3gt_translate_tooltip_head {
+	background:-moz-linear-gradient(center left, rgba(100, 100, 100, 0.6), rgba(100, 100, 100, 0.4), rgba(170, 170, 170, 0.5));
+	background: linear-gradient(to right, rgba(100, 100, 100, 0.6), rgba(100, 100, 100, 0.4), rgba(170, 170, 170, 0.5));
+}
+#s3gt_translate_tooltip_head_logo:hover {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+.s3gt_translate_tooltip_head_button[change_for_dark="true"] {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+.s3gt_translate_tooltip_button {
+	background:-moz-linear-gradient(center top, rgba(180, 180, 180, 0.2), rgba(170, 170, 170, 0.4), rgba(120, 120, 120, 0.6), rgba(160, 160, 160, 0.4));
+	background: linear-gradient(to bottom, rgba(180, 180, 180, 0.2), rgba(170, 170, 170, 0.4), rgba(120, 120, 120, 0.6), rgba(160, 160, 160, 0.4));
+}
+.s3gt_translate_tooltip_button:hover {
+	background:-moz-linear-gradient(center top, rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.4), rgba(120, 120, 120, 0.8), rgba(160, 160, 160, 0.5));
+	background: linear-gradient(to bottom, rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.4), rgba(120, 120, 120, 0.8), rgba(160, 160, 160, 0.5));
+}
+.s3gt_translate_tooltip_button:active {
+	background:-moz-linear-gradient(center top, rgba(160, 160, 160, 0.8), rgba(120, 120, 120, 0.5), rgba(170, 170, 170, 0.4), rgba(180, 180, 180, 0.8));
+	background: linear-gradient(to bottom, rgba(160, 160, 160, 0.8), rgba(120, 120, 120, 0.5), rgba(170, 170, 170, 0.4), rgba(180, 180, 180, 0.8));
+}
+
+#s3gt_translate_tooltip_body[is_background="true"] {
+	filter: sepia(5%) contrast(60%) brightness(80%);
+}
+
+#s3gt_translate_tooltip_settings_box {
+	background-color: #353431;
+}
+.s3gt_translate_tooltip_txt_box_pane {
+	background-color: #353431;
+}
+.s3gt_translate_tooltip_txt_control {
+	background-color: #353431;
+}
+#s3gt_translate_tooltip_donate {
+	color: #60CCFB;
+}
+#s3gt_translate_tooltip_donate:hover {
+	color: #FC4738;
+}
+.s3gt_translate_tooltip_variant:hover, .s3gt_translate_tooltip_variant[is_hover="true"] {
+	background-color: #07718B;
+}
+.s3gt_translate_tooltip_variant_main_word:hover {
+	border-bottom: 1px #C7F2FC dashed;
+}

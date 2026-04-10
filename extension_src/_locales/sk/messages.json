@@ -1,0 +1,8 @@
+﻿{
+	"extension_name": {
+		"message": "S3.Translator"
+	},
+	"extension_description": {
+		"message": "Prekladá vybraný text, predstavené frázy alebo celé web stránky z akéhokoľvek jazyka do akéhokoľvek jazyka"
+	}
+}
