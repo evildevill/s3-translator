@@ -1,0 +1,61 @@
+{
+	"manifest_version": 3,
+	"name": "__MSG_extension_name__",
+	"short_name": "__MSG_extension_name__",
+	"description": "__MSG_extension_description__",
+	"author": "Oleksandr Popov",
+	"homepage_url": "https://www.s3blog.org/s3translator.html",
+	"version": "6.29",
+	"minimum_chrome_version": "88",
+	"default_locale": "en",
+	"icons": {
+		"16": "skin/s3gt_logo_16.png",
+		"32": "skin/s3gt_logo_32.png",
+		"48": "skin/s3gt_logo_48.png"
+	},
+	"action": {
+		"default_title": "__MSG_extension_name__",
+		"default_icon": "skin/s3gt_logo_16.png",
+		"default_popup": "content/popup.html"
+	},
+	"background": {
+		"service_worker": "content/background_sw.js"
+	},
+	"options_ui": {
+		"page": "content/options.html",
+		"open_in_tab": true
+	},
+	"content_scripts": [
+		{
+		"js": [ "/content/tab_loader.js" ],
+		"matches": [ "<all_urls>" ],
+		"all_frames" : true,
+		"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [ "/skin/*", "/locale/*", "/content/tooltip_fly.html" ],
+			"matches": [ "<all_urls>" ]
+		}
+	],
+	"permissions": [
+		"activeTab",
+		"contextMenus",
+		"tabs",
+		"notifications",
+		"storage",
+		"unlimitedStorage",
+		"clipboardWrite",
+		"clipboardRead",
+		"webRequest",
+		"webNavigation",
+		"downloads",
+		"scripting",
+		"declarativeNetRequest",
+		"declarativeNetRequestWithHostAccess"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	]
+}

@@ -1,0 +1,648 @@
+*[is_hide="true"] {
+	display: none;
+}
+body {
+	padding: 0;
+	margin:0px;
+	background-color: transparent;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	overflow: hidden;
+}
+table, option {
+	background-color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+}
+option {
+	-webkit-appearance:none;
+	background-color: #FFFFFF !important;
+}
+.s3gt_translate_tooltip {
+	background-color: #FFFFFF;
+	width: auto;
+	border: 1px solid #778899;
+	color: #333333;
+	z-index: 2147483649;
+	margin: 0;
+	padding: 3px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 2px rgba(122,122,122,0.7);
+	text-align: center;
+}
+.s3gt_translate_tooltip[is_panel='true'] {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.s3gt_translate_tooltip * {
+	text-align: left;
+}
+#s3gt_translate_tooltip_body {
+	position:absolute;
+	padding:0;
+	margin:0px;
+	border:0;
+}
+#s3gt_translate_tooltip_body[is_panel="true"] {
+	min-width: 100%;
+	white-space: nowrap;
+}
+#s3gt_translate_tooltip_body[is_background="true"] {
+	filter: sepia(4%) contrast(98%) brightness(98%);
+}
+#s3gt_translate_tooltip_body[is_hide="true"] {
+	display: none;
+}
+#s3gt_translate_tooltip_head {
+	white-space: nowrap;
+	background:-moz-linear-gradient(center left, rgba(220, 220, 220, 0.6), rgba(220, 220, 220, 0.4), rgba(255, 255, 255, 0.6));
+	background: linear-gradient(to right, rgba(220, 220, 220, 0.6), rgba(220, 220, 220, 0.4), rgba(255, 255, 255, 0.6));
+	user-select: none !important;
+	cursor: default;
+	position: relative;
+	line-height: 0.5em;
+}
+#s3gt_translate_tooltip_head:active, #s3gt_translate_tooltip_head[is_move_mouse_down="true"] {
+	cursor: move !important;
+}
+#s3gt_translate_tooltip_head:active[is_panel="true"], #s3gt_translate_tooltip_head[is_move_mouse_down="true"][is_panel="true"] {
+	cursor: ns-resize !important;
+}
+#s3gt_translate_tooltip_head * {
+	vertical-align: middle;
+	user-select: none !important;
+}
+.s3gt_translate_tooltip_background {
+	position: absolute;
+	background-color: inherit;
+	filter: brightness(80%) opacity(20%);
+	width: 100%;
+	height: 100%;
+	border: none;
+	padding: 0;
+	top: 0;
+	left: 0;
+}
+#s3gt_translate_tooltip_separator {
+	margin-bottom: 5px;
+}
+#s3gt_translate_tooltip_name_title {
+	display: inline-table;
+	line-height: 0.8em;
+	vertical-align: middle;
+}
+#s3gt_translate_tooltip_name, #s3gt_translate_tooltip_name_title, #s3gt_translate_tooltip_name_text {
+	user-select: none !important;
+	-moz-user-select: none !important;
+	cursor: inherit;
+	vertical-align: middle;
+	margin-bottom: 1px;
+}
+.s3gt_translate_tooltip_txt_box_pane {
+	overflow: hidden;
+	margin-top: 3px;
+	min-width: 400px;
+	min-height: 50px;
+	max-height: 500px;
+	border: 1px #cccccc solid;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	resize: both;
+	background-color: #FFFFFF;
+	padding-bottom: 35px;
+}
+#s3gt_translate_tooltip_name_text {
+	font-size: 0.8em;
+	font-family: monospace;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+/*	position: absolute;*/
+/*	padding: 3px; */
+	padding: 0;
+/*	margin-bottom: -3px;*/
+	width: 70%;
+/*	line-height: 0.7em;*/
+	line-height: 1em;
+	vertical-align: bottom;
+}
+.s3gt_translate_tooltip_txt_box_pane[is_panel="true"] {
+	padding-bottom: 0;
+	max-height: initial;
+	resize: none;
+}
+.s3gt_translate_tooltip_txt_box_pane[is_panel="true"]:not([id="s3gt_translate_tooltip_txt_pane_from"]) {
+/*	min-width: initial;*/
+/*	width: 100%;*/
+	margin-left: 5px;
+}
+.s3gt_translate_tooltip_txt_box {
+	padding: 3px;
+	overflow: auto;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	word-wrap: break-word;
+	background-color: inherit;
+	white-space: pre-wrap;
+	height: 100%;
+	outline: none;
+}
+.s3gt_translate_tooltip_txt_box:before {
+	background-color: inherit;
+	content: attr(box_name);
+	float: right;
+	border-bottom: 1px #cccccc solid;
+	border-left: 1px #cccccc solid;
+	border-bottom-left-radius: 5px;
+	padding: 3px;
+	margin: -3px -3px 3px 3px;
+	font-size: 0.8em;
+	line-height: 0.8em;
+	text-transform: uppercase;
+	opacity: 0.5;
+}
+.s3gt_translate_tooltip_txt_box:after {
+	content: ' ';
+	font-size: 1px;
+	display: block;
+	padding: 3px;
+}
+.s3gt_translate_tooltip_txt_box[before_is_hide="true"]:before {
+	display: none;
+}
+.s3gt_translate_tooltip_txt_box_pane[is_panel="true"] .s3gt_translate_tooltip_txt_box {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.s3gt_translate_tooltip_txt_box_pane[is_panel="true"] .s3gt_translate_tooltip_txt_box:before {
+	margin-top: 0;
+}
+#s3gt_translate_tooltip_wait {
+	background: url('/skin/please_wait.gif') center no-repeat;
+	background-size: 16px 16px;
+	width: 32px;
+	height: 16px;
+	display: inline-block;
+}
+.s3gt_translate_tooltip_txt_control {
+	position: absolute;
+	bottom: 0px;
+	border: 1px #cccccc solid;
+	background-color: #FFFFFF;
+	padding: 1px;
+	border-top-right-radius: 5px;
+	line-height: 0.8em;
+}
+.s3gt_translate_tooltip_txt_control[is_panel="true"] {
+	top: -20px;
+	bottom: initial;
+}
+.s3gt_translate_tooltip_txt_control[is_panel="true"]:not([id="s3gt_translate_tooltip_txt_control_from"]) {
+	margin-left: 5px;
+}
+.s3gt_translate_tooltip_txt_control_box[is_hide="true"] {
+	display: none;
+}
+.s3gt_translate_tooltip_txt_control * {
+	vertical-align: middle;
+}
+.s3gt_translate_tooltip_txt_block {
+/*	background-color: inherit; */
+	position: relative;
+}
+.s3gt_translate_tooltip_txt_block[is_panel="true"] {
+	display: inline-block;
+	margin-top: 20px;
+}
+.s3gt_translate_tooltip_head_button {
+	border: 1px solid #778899;
+	box-shadow: 0 0 2px 1px rgba(122,122,122,0.7);
+	cursor: pointer;
+	height: 16px;
+	width: 16px;
+	box-sizing: content-box;
+	user-select: none !important;
+	padding: 0px;
+}
+.s3gt_translate_tooltip_head_button:focus {
+	outline: none;
+}
+.s3gt_translate_tooltip_head_button:hover {
+	background-color: rgba(255,83,83,0.3) !important;
+}
+.s3gt_translate_tooltip_head_button:active {
+	background-color: rgba(255,255,255,0.3) !important;
+}
+#s3gt_translate_tooltip_head_close {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-tooltip-close.png') center no-repeat;
+}
+#s3gt_translate_tooltip_head_minimize {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-tooltip-minimize.png') center no-repeat;
+}
+#s3gt_translate_tooltip_head_exchange {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-button-exchange.png') center no-repeat;
+}
+#s3gt_translate_tooltip_head_exchange[is_panel="true"] {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-button-exchange-panel.png') center no-repeat;
+}
+#s3gt_translate_tooltip_head_logo {
+	cursor: inherit;
+	background: url('/skin/s3gt_logo_16.png') center no-repeat;
+	display: inline-block;
+}
+#s3gt_translate_tooltip_head_logo:hover {
+	background: url('/skin/s3gt-tooltip-close.png') center no-repeat;
+	cursor: pointer;
+}
+#s3gt_translate_tooltip_head_pin {
+	float: right;
+	margin-left: 3px;
+}
+#s3gt_translate_tooltip_head_pin[pin_type="close"] {
+	background: url('/skin/s3gt-button-pin-close.png') center no-repeat;
+	background-size: 12px;
+}
+#s3gt_translate_tooltip_head_pin[pin_type="onetab"] {
+	background: url('/skin/s3gt-button-pin-onetab.png') center no-repeat;
+	background-size: 12px;
+}
+#s3gt_translate_tooltip_head_pin[pin_type="alltabs"] {
+	background: url('/skin/s3gt-button-pin-alltabs3.png') center no-repeat;
+	background-size: 16px;
+}
+#s3gt_translate_tooltip_head_fly {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-button-panel-fly-off.png') center no-repeat;
+	background-size: 12px;
+}
+#s3gt_translate_tooltip_head_fly[is_fly="true"] {
+	background: url('/skin/s3gt-button-panel-fly.png') center no-repeat;
+	background-size: 12px;
+}
+#s3gt_translate_tooltip_head_settings {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-tooltip-settings.png') center no-repeat;
+	background-size: 12px;
+}
+.s3gt_translate_tooltip_select {
+	font: inherit;
+	margin: inherit;
+	padding: inherit;
+	color: inherit;
+	line-height: inherit;
+	white-space: inherit;
+	text-shadow: inherit;
+	width: 200px;
+	border-radius: 2px;
+	border: 1px solid #A0A0A0;
+	background-color: inherit;
+}
+.s3gt_translate_tooltip_button {
+	border-radius: 2px;
+	border: 1px solid #A0A0A0;
+	-moz-appearance: none;
+	background:-moz-linear-gradient(center top, rgba(255, 255, 255, 0.2), rgba(240, 240, 240, 0.4), rgba(170, 170, 170, 0.6), rgba(170, 170, 170, 0.4));
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(240, 240, 240, 0.4), rgba(170, 170, 170, 0.6), rgba(170, 170, 170, 0.4));
+	font: inherit;
+	color: inherit;
+	line-height: inherit;
+	white-space: inherit;
+	text-align: center;
+	text-shadow: inherit;
+	cursor: pointer;
+	padding: 0px 5px;
+	margin: 0;
+	margin-left: 3px;
+	text-transform: inherit;
+	user-select: none !important;
+}
+.s3gt_translate_tooltip_button:hover {
+	background:-moz-linear-gradient(center top, rgba(240, 240, 240, 0.8), rgba(240, 240, 240, 0.4), rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.5));
+	background: linear-gradient(to bottom, rgba(240, 240, 240, 0.8), rgba(240, 240, 240, 0.4), rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.5));
+	border: 1px solid #B5B5B5 !important;
+}
+.s3gt_translate_tooltip_button:active {
+	background:-moz-linear-gradient(center top, rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.5), rgba(240, 240, 240, 0.4), rgba(255, 255, 255, 0.8));
+	background: linear-gradient(to bottom, rgba(170, 170, 170, 0.8), rgba(170, 170, 170, 0.5), rgba(240, 240, 240, 0.4), rgba(255, 255, 255, 0.8));
+	border: 1px solid #333333 !important;
+}
+.s3gt_translate_tooltip_button:focus {
+	outline: none;
+}
+.s3gt_translate_tooltip_button[is_offer="true"] {
+	-webkit-filter: sepia(100%) brightness(75%) contrast(200%) saturate(150%) hue-rotate(90deg);
+	filter: sepia(100%) brightness(75%) contrast(200%) saturate(150%) hue-rotate(90deg);
+}
+#s3gt_translate_tooltip_button_move_top, #s3gt_translate_tooltip_button_move_top_comby {
+	border: none;
+	background: url('/skin/s3gt-move-top.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+}
+#s3gt_translate_tooltip_button_exchange {
+	border: none;
+	background: url('/skin/s3gt-button-reverse.png') center no-repeat;
+	background-size: contain;
+	width: 32px;
+	height: 16px;
+}
+#s3gt_translate_tooltip_button_exchange_comby {
+	border: none;
+	background: url('/skin/s3gt-button-reverse.png') center no-repeat;
+	background-size: contain;
+	width: 32px;
+	height: 16px;
+}
+#s3gt_translate_tooltip_button_clear_text {
+	border: none;
+	background: url('/skin/s3gt-button-clear-text.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+}
+#s3gt_translate_tooltip_button_correct_text {
+	border: none;
+	background: url('/skin/s3gt-button-correct-text-off.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+}
+#s3gt_translate_tooltip_button_correct_text[is_correct_text="true"] {
+	background: url('/skin/s3gt-button-correct-text.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_view_source {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-button-panel-up.png') center no-repeat;
+}
+#s3gt_translate_tooltip_view_source[is_show="true"] {
+	background: url('/skin/s3gt-button-panel-up-on.png') center no-repeat;
+}
+#s3gt_translate_tooltip_view_reverse {
+	float: right;
+	margin-left: 3px;
+	background: url('/skin/s3gt-button-panel-down.png') center no-repeat;
+}
+#s3gt_translate_tooltip_view_reverse[is_show="true"] {
+	background: url('/skin/s3gt-button-panel-down-on.png') center no-repeat;
+}
+#s3gt_translate_tooltip_txt_copy_from, #s3gt_translate_tooltip_txt_copy_to, #s3gt_translate_tooltip_txt_copy_reverse {
+	border: none;
+	background: url('/skin/s3gt-button-copy-text.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_sound_from, #s3gt_translate_tooltip_txt_sound_to, #s3gt_translate_tooltip_txt_sound_reverse {
+	border: none;
+	background: url('/skin/s3gt-button-sound.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_sound_off_from, #s3gt_translate_tooltip_txt_sound_off_to, #s3gt_translate_tooltip_txt_sound_off_reverse {
+	border: none;
+	background: url('/skin/s3gt-button-sound-off.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_lang_close_from, #s3gt_translate_tooltip_txt_lang_close_to, #s3gt_translate_tooltip_txt_lang_close_to_comby, #s3gt_translate_tooltip_txt_lang_close_reverse {
+	border: none;
+	background: url('/skin/s3gt-button-lang-close.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_google_from, #s3gt_translate_tooltip_txt_google_to, #s3gt_translate_tooltip_txt_google_reverse {
+	border: none;
+	background: url('/skin/google_translate.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_lowercase_to, #s3gt_translate_tooltip_txt_lowercase_reverse {
+	border: none;
+	background: url('/skin/s3gt-button-lowercase-off.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_txt_lowercase_to[is_lowercase="true"], #s3gt_translate_tooltip_txt_lowercase_reverse[is_lowercase="true"] {
+	background: url('/skin/s3gt-button-lowercase.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_txt_retry_to, #s3gt_translate_tooltip_txt_retry_reverse {
+	border: none;
+	background: url('/skin/s3gt-retry.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_button_instant_translate {
+	border: none;
+	background: url('/skin/s3gt-button-instant.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_button_instant_translate[is_instant="true"] {
+	background: url('/skin/s3gt-button-instant-on.png') center no-repeat;
+}
+#s3gt_translate_tooltip_button_transcription {
+	border: none;
+	background: url('/skin/s3gt-button-transcription.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#s3gt_translate_tooltip_button_transcription[is_hide='true'] {
+	display: none;
+}
+#s3gt_translate_tooltip_button_transcription[is_view='true'] {
+	background: url('/skin/s3gt-button-transcription-on.png') center no-repeat;
+	background-size: contain;
+}
+#s3gt_translate_tooltip_button_run {
+	line-height: 0.5em;
+	padding: 4px;
+}
+.s3gt_translate_tooltip_txt_flag {
+	border: 1px transparent solid;
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+	background-position: center !important;
+}
+.s3gt_translate_tooltip_txt_flag_box {
+	z-index: 99999;
+	position: absolute;
+	bottom: -1px;
+	left: -1px;
+	display: none;
+	padding: 2px;
+	background-color: inherit;
+	white-space: nowrap;
+	border: inherit;
+	border-top-right-radius: 5px;
+}
+.s3gt_translate_tooltip_txt_flag_box[is_panel="true"] {
+	bottom: -21px;
+}
+.s3gt_translate_tooltip_txt_flag_box[is_show='true'] {
+	display: inline-block;
+}
+#s3gt_translate_tooltip_txt_flag_comby {
+	border: 1px solid transparent;
+	background: none;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+#s3gt_translate_tooltip_txt_flag_comby[is_hide='true'] {
+	display: none;
+}
+#s3gt_translate_tooltip_txt_flag_comby div {
+	display: block;
+	float: left;
+	height: 11px;
+}
+#s3gt_translate_tooltip_txt_flag_to_box_comby .s3gt_translate_tooltip_select {
+	width: 150px;
+}
+.s3gt_translate_tooltip_txt_control[is_panel="true"] #s3gt_translate_tooltip_txt_flag_to_box_comby {
+	bottom: -21px;
+}
+#s3gt_translate_tooltip_txt_flag_to[is_hide='true'] {
+	display: none;
+}
+#s3gt_translate_tooltip_txt_flag_arrow {
+	border: none;
+	background: url('/skin/s3gt-flag-arrow.png') center no-repeat;
+	background-size: contain;
+	width: 16px;
+	background-position: center !important;
+	margin: 2px;
+}
+
+#s3gt_translate_tooltip_settings_box {
+	position: absolute;
+	overflow: hidden;
+	top: 25px;
+	padding: 5px;
+	background-color: #FFFFFF;
+	color: inherit;
+	border: 1px solid #778899;
+	cursor: auto;
+	user-select: text;
+	display: none;
+	z-index: 799999;
+	font-size: 0.9em;
+}
+#s3gt_translate_tooltip_settings_box[is_panel='true'] {
+	right: 80px;
+}
+#s3gt_translate_tooltip_settings_box[is_show='true'] {
+	display: inline-block;
+}
+#s3gt_translate_tooltip_settings_theme_file {
+	display: none;
+}
+#s3gt_translate_tooltip_settings_close_box {
+	text-align: right;
+}
+#s3gt_translate_tooltip_settings_close_box_buttons {
+	padding-bottom: 3px;
+	text-align: right;
+}
+#s3gt_translate_tooltip_donate {
+	text-decoration: none;
+	color: #2222FF;
+}
+#s3gt_translate_tooltip_donate:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+.s3gt_translate_tooltip_variant {
+	margin: 0px;
+	border: 0;
+	cursor: pointer;
+/*	margin-right: 10px;*/
+}
+.s3gt_translate_tooltip_variant:hover, .s3gt_translate_tooltip_variant[is_hover="true"] {
+	background-color: #C7F2FC;
+	border-radius: 5px;
+}
+#s3gt_translate_tooltip_variant_box_template {
+	display: none;
+}
+#s3gt_translate_tooltip_variant_box {
+	background: inherit;
+	border: inherit;
+	color: inherit;
+	z-index: 999998;
+	margin: 0px;
+	margin-right: 8px;
+	padding: 3px;
+	position: absolute;
+	display: none;
+	border-radius: 0;
+	min-width: 150px;
+	outline: none;
+	font-size: 0.9em;
+}
+#s3gt_translate_tooltip_variant_box[is_show="true"] {
+	display: inline-block;
+}
+#s3gt_translate_tooltip_variant_box td {
+	border-bottom: 1px #C8C8C8 dashed;
+}
+#s3gt_translate_tooltip_variant_box tr:hover td {
+	border-bottom: 1px #07718B dashed;
+}
+.s3gt_translate_tooltip_variant_main_translate {
+	opacity: 0.5;
+}
+.s3gt_translate_tooltip_button_color {
+	background-color: inherit;
+	cursor: pointer;
+	width: 5em;
+	height: 1.5em;
+	margin: 0;
+	padding: 0;
+	border: none;
+/*
+	border-style: double;
+	border-color:inherit;
+	border-width: 3px;
+*/
+}
+.s3gt_translate_tooltip_button_color[disabled="true"] {
+	background-color: #cccccc !important;
+	cursor: default;
+}
